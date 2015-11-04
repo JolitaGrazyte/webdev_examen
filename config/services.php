@@ -34,5 +34,16 @@ return [
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    'facebook' => [
+        'client_id'     => env('FB_CLIENT_ID'),
+        'client_secret' => env('FB_SECRET'),
+        'redirect'      => 'http://webdev.local.com/register/facebook',
+    ],
+
+    'google' => [
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_SECRET'),
+        'redirect'      => 'http://webdev.local.com/register/google',
+    ],
 
 ];
