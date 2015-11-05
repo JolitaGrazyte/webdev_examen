@@ -21,7 +21,7 @@ class RedirectIfNotAdmin
 
             if( !$request->user()->isAdmin()){
 
-                return redirect()->route('home');
+                return redirect()->to('/');
             }
 
             return $response;

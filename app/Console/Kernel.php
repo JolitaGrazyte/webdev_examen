@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\Inspire::class,
+        \App\Console\Commands\SendEmails::class,
     ];
 
     /**
@@ -26,5 +27,13 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('inspire')
                  ->hourly();
+
+        $schedule->command('emails:send')->when( function (Period $period) {
+
+                for($i = 1; $i <= sizeof($period); ++$i){
+                    return $period->find($i)->end <= Carbon::now();
+                }
+
+        });
     }
 }

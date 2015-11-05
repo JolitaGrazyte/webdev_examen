@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PeriodRequest;
 use App\Period;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Database\QueryException;
 
 
 class PeriodsController extends Controller
@@ -33,18 +37,32 @@ class PeriodsController extends Controller
      */
     public function create()
     {
+
         return view('admin.periods.create')->withTitle('Add periods');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param PeriodRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PeriodRequest $request)
     {
 
+       try{
+           $this->addPeriod($request);
+
+           Session::flash('message', "Period has been added successfully.");
+           Session::flash('alert-class', 'alert-success');
+       }
+       catch(QueryException $e){
+
+           Session::flash('message', "Something went wrong.");
+           Session::flash('alert-class', 'alert-error');
+       }
+
+        return redirect()->route('admin');
     }
 
     /**
@@ -79,10 +97,22 @@ class PeriodsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PeriodRequest $request, $id)
     {
-        $period = $this->period->find($id);
-        return redirect()->back();
+
+        try{
+            $this->addPeriod($request, $id);
+
+            Session::flash('message', "Period has been updated successfully.");
+            Session::flash('alert-class', 'alert-success');
+        }
+        catch(QueryException $e){
+
+            Session::flash('message', "Something went wrong.");
+            Session::flash('alert-class', 'alert-error');
+        }
+
+        return redirect()->route('admin');
     }
 
     /**
@@ -93,6 +123,18 @@ class PeriodsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $period = $this->period->find($id);
+        $period->delete();
+
+        return redirect()->route('admin');
+    }
+
+
+   private function addPeriod($request, $id = null){
+
+        $period = $id == null ? $this->period : $this->period->find($id);
+        $period->start  = Carbon::createFromFormat('Y-m-d', $request->get('start'));
+        $period->end    = Carbon::createFromFormat('Y-m-d', $request->get('end'));
+        $p = $period->save();
     }
 }

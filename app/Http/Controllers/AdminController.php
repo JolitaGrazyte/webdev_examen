@@ -11,7 +11,7 @@ class AdminController extends Controller
 {
     public function __construct(){
 
-//        $this->middleware('admin');
+        $this->middleware('admin');
     }
     /**
      * Display a listing of the resource.
@@ -20,6 +20,7 @@ class AdminController extends Controller
      */
     public function index()
     {
+
         $periods = Period::all();
         $admin_email = $this->getEmail();
         return view('admin.index', compact('admin_email', 'periods'))->withTitle('Admin');
@@ -32,28 +33,28 @@ class AdminController extends Controller
         return $email;
     }
 
-    public function sendEmail()
-    {
-        $user = User::where('role', 0)->first();
-        $periods = Period::all();
-
-        foreach($periods as $period){
-
-
-
-
-            dd($period->end);
-        }
-
-//        Mail::send('emails.notification', ['user' => $user], function ($m) use ($user) {
+//    public function sendEmail()
+//    {
+//        $user = User::where('role', 0)->first();
+//        $periods = Period::all();
+//
+//        foreach($periods as $period){
 //
 //
-//            $m->from('gogglesl@zealoptics.com', 'Zeal Ski Goggles Game Winners')->to($user->email, $user->name)->subject('Notification mail!');
 //
 //
-//        });
-
-        return redirect()->back();
-
-    }
+//            dd($period->end);
+//        }
+//
+////        Mail::send('emails.notification', ['user' => $user], function ($m) use ($user) {
+////
+////
+////            $m->from('gogglesl@zealoptics.com', 'Zeal Ski Goggles Game Winners')->to($user->email, $user->name)->subject('Notification mail!');
+////
+////
+////        });
+//
+//        return redirect()->back();
+//
+//    }
 }

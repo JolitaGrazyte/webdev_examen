@@ -15,29 +15,31 @@
 
                 {!!Form::open(['route' =>  ['admin.periods.update', $period->id], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PATCH'])  !!}
 
-                <div class="form-group">
+                @include('admin.periods.form')
 
-                    {!! Form::label('start', 'Period start:', ['class' => 'col-md-3 control-label']) !!}
+                {{--<div class="form-group">--}}
 
-                    <div class="col-md-8">
+                    {{--{!! Form::label('start', 'Period start:', ['class' => 'col-md-3 control-label']) !!}--}}
 
-                        {!! Form::date('start',$period->start, ['class' => 'form-control', 'placeholder' => 'period start']) !!}
+                    {{--<div class="col-md-8">--}}
 
-                    </div>
-                </div>
+                        {{--{!! Form::date('start',$period->start, ['class' => 'form-control', 'placeholder' => 'period start']) !!}--}}
+
+                    {{--</div>--}}
+                {{--</div>--}}
 
 
-                <div class="form-group">
+                {{--<div class="form-group">--}}
 
-                    {!! Form::label('end', 'Period end:', ['class' => 'col-md-3 control-label']) !!}
+                    {{--{!! Form::label('end', 'Period end:', ['class' => 'col-md-3 control-label']) !!}--}}
 
-                    <div class="col-md-8">
+                    {{--<div class="col-md-8">--}}
 
-                        {!! Form::date('end', $period->end, ['class' => 'form-control', 'placeholder' => 'period end']) !!}
+                        {{--{!! Form::date('end', $period->end, ['class' => 'form-control', 'placeholder' => 'period end']) !!}--}}
 
-                    </div>
+                    {{--</div>--}}
 
-                </div>
+                {{--</div>--}}
 
 
                 <div class="form-group">

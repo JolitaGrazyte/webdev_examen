@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'OpenSansCondencedLight';
+  src: url('../fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.eot');
+  src: url('../fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.eot?#iefix') format('embedded-opentype'),
+    //url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+  url('../fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+
+$bg_img1: url('../files/img/mountain_ropeway_ski_resort-wide.jpg');
+$bg_img2: url('../files/img/Jump-Ski-Ice-Wallpaper-For-Desktop-79194.jpg');
+$bg_img3: url('../files/img/aaeac3380d57eb273795bbd341dbdc0d.jpeg');
+
+$logo_size: 15rem;
+
+$font-stack:    OpenSansCondencedLight, sans-serif;
+$primary-color: #333;
+
+$input-w: 20rem;
+$input-h: 4.7rem;

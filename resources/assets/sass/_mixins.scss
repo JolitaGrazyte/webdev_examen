@@ -1,0 +1,10 @@
+@mixin centering($percent){
+
+  position: absolute;
+  left: $percent;
+  transform: translateX(-$percent);
+  -webkit-transform:  translateX(-$percent);
+
+}
+
+

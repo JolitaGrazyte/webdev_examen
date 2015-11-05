@@ -33,6 +33,9 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function(){
     resource('periods',   'PeriodsController' );
 
 });
+get('admin/periods/{id}/delete',    ['as' => 'period-delete',       'uses' => 'PeriodsController@destroy']);
+
+
 get('admin',    ['as' => 'admin',       'uses' => 'AdminController@index']);
 get('sendmail', ['as' => 'sendEmail', 'uses' => 'AdminController@sendEmail']);
 

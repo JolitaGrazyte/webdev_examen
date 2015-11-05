@@ -1,3 +1,4 @@
+
 @if(count($periods))
 
     <div class="panel panel-default">
@@ -11,6 +12,10 @@
                 <span> {{ $period->start }} - </span>
 
                 <span> {{ $period->end }} </span>
+
+                <div>
+                    <a href="{{ route('period-delete', [$period->id]) }}"><em>delete period</em></a>
+                </div>
 
             @endforeach
 

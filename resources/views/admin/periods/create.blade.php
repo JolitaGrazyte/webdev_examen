@@ -4,8 +4,9 @@
 
 @section('content')
 
-
     <div class="col-md-5 my-form">
+
+        @include('errors.errors')
 
         <div class="panel panel-default">
 
@@ -15,30 +16,7 @@
 
                     {!!Form::open(['route' =>  ['admin.periods.store'], 'class' => 'form-horizontal', 'role' => 'form'])  !!}
 
-                    <div class="form-group">
-
-                        {!! Form::label('start', 'Period start:', ['class' => 'col-md-3 control-label']) !!}
-
-                        <div class="col-md-8">
-
-                            {!! Form::date('start', null, ['class' => 'form-control', 'placeholder' => 'period start']) !!}
-
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-
-                        {!! Form::label('end', 'Period end:', ['class' => 'col-md-3 control-label']) !!}
-
-                        <div class="col-md-8">
-
-                            {!! Form::date('end', null, ['class' => 'form-control', 'placeholder' => 'period end']) !!}
-
-                        </div>
-
-                    </div>
-
+                    @include('admin.periods.form')
 
                     <div class="form-group">
 

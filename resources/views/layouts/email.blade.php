@@ -5,7 +5,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-    <link rel="stylesheet" href="{{ url('css/app.css') }}">
+    <link rel="stylesheet" href="http://webdev.local.com/css/app.css">
 
 </head>
 <body>
@@ -19,8 +19,8 @@
     @yield('content')
 
 
-    <footer>
-        <img src="{{ url('files/img/footer_email.png') }}" alt="footer image">
+    <footer class="col-lg-12">
+        <img src="http://webdev.local.com/files/img/footer_email.png" alt="footer image">
     </footer>
 </div>
 </body>

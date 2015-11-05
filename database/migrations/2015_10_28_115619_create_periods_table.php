@@ -17,6 +17,7 @@ class CreatePeriodsTable extends Migration
             $table->increments('id');
             $table->date('start');
             $table->date('end');
+            $table->timestamps();
 
         });
     }
