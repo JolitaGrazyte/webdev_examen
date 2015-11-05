@@ -9,9 +9,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Session;
 use Storage;
 use Auth;
-use App\Votes;
 use App\Libraries\ImageResize;
-use Illuminate\Support\Facades\DB;
 
 class ImagesController extends Controller
 {
@@ -72,6 +70,8 @@ class ImagesController extends Controller
                 }
                 catch(QueryException $e){
 
+                    dd($e);
+
                     redirect()->route('home')->withMessage('There were some problems uploading your image.');
                 }
 
@@ -92,7 +92,7 @@ class ImagesController extends Controller
     public function getImage($filename, $size){
 
         $entry      = $this->image->where('filename', $filename)->firstOrFail();
-        $file       = Storage::disk('local')->get($entry->filename);
+        $file       = Storage::disk('local')->get('/uploads/'.$entry->filename);
         $img_resize = new ImageResize();
         $file       = $img_resize->resize_image($filename, $size);
 

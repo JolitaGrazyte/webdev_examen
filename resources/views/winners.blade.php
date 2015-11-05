@@ -1,8 +1,8 @@
-<h1>Winners</h1>
-
 @foreach($winners as $key => $p_winners)
 
     @if(count($p_winners))
+
+        <h1>Winners</h1>
 
         <h3> {{ ucfirst($key) }} </h3>
         <div>

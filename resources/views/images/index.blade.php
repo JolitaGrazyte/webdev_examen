@@ -1,6 +1,4 @@
 
-
-
 @each('images.index', $images, 'images.single', 'images.no-items')
 
 {{--@if(count($images))--}}

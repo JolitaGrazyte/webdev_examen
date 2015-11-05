@@ -9,16 +9,15 @@
 </head>
 <body>
 
+<header>
+    @include('layouts.nav')
+</header>
+
 
 <div class="container-fluid">
 
-    <header>
-        @include('layouts.nav')
-    </header>
 
     @yield('content')
-
-
 
     @yield('footer')
 

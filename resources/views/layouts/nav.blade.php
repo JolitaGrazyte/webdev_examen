@@ -3,7 +3,6 @@
 </div>
 
 
-
 <nav>
     <ul class="navbar-nav">
         <li><a class="link" name="register" id="play" href="{{ route('register') }}">Play</a></li>

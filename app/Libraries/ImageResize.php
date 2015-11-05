@@ -36,7 +36,7 @@ class ImageResize {
         $filename = str_replace(' ', '-', $name);
 
         $extension = $image->getClientOriginalExtension();
-        Storage::disk('local')->put($filename . '.' . $extension, File::get($image));
+        Storage::disk('local')->put('/uploads/'.$filename . '.' . $extension, File::get($image));
         $entry = $imgObj;
         $entry->name = $name;
         $entry->user_id = $user_id;

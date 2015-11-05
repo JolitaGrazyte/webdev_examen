@@ -39,9 +39,7 @@ class AdminController extends Controller
 //        $periods = Period::all();
 //
 //        foreach($periods as $period){
-//
-//
-//
+
 //
 //            dd($period->end);
 //        }

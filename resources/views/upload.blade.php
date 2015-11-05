@@ -48,7 +48,7 @@
 
                             <div class="col-md-12">
 
-                                {!! Form::submit('Send it', ['class' => 'btn btn-primary form-control']) !!}
+                                {!! Form::submit('Send it', ['class' => 'my-btn form-control']) !!}
 
                             </div>
 
