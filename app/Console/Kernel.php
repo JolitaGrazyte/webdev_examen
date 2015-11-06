@@ -31,10 +31,13 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('emails:send')->when( function ( Period $period ) {
 
-                for($i = 1; $i <= sizeof($period); ++$i){
-                    return $period->find(1)->end <= Carbon::now();
+            $pp = $period->past()->get();
+
+            foreach($pp as $p){
+
+                    return $period->find($p['id'])->end == Carbon::now();
                 }
 
-        })->everyMinute();
+        })->at('00:05:00');
     }
 }

@@ -47,8 +47,6 @@ class GameController extends Controller
 
             foreach($past_periods as $key => $p){
 
-//                dd($p);
-
 //                $winners['Period '.($key+1)] = $this->getWinner($p);
                 $winners['Period '.($key+1)] = Votes::winners($p);
 
