@@ -38,6 +38,6 @@ class Kernel extends ConsoleKernel
                     return $period->find($p['id'])->end == Carbon::now();
                 }
 
-        })->at('00:16:00');
+        })->at('00:50:00');
     }
 }
