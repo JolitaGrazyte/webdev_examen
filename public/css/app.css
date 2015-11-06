@@ -5865,24 +5865,30 @@ html, body {
       font-family: OpenSansCondencedLight, sans-serif;
       font-size: 4rem; }
     html section a:hover,
-    html section a:focus, body section a:hover,
-    body section a:focus {
+    html section a:focus, html section a:active, body section a:hover,
+    body section a:focus, body section a:active {
       color: #ff8a00;
       text-decoration: underline; }
   html section#rules, body section#rules {
     padding-top: 18rem;
-    padding-bottom: 10rem; }
+    padding-bottom: 15rem; }
+    html section#rules div.rules, html section#rules div.winners, body section#rules div.rules, body section#rules div.winners {
+      float: left; }
     html section#rules a, html section#rules a:link, html section#rules a:visited, body section#rules a, body section#rules a:link, body section#rules a:visited {
       line-height: 4rem;
       font-size: 3rem; }
     html section#rules .rules, body section#rules .rules {
+      width: 70%;
       font-size: 2rem;
       text-align: justify;
       line-height: 2rem;
       padding: 1rem 2rem 1rem 2rem;
       font-style: oblique; }
+    html section#rules .winners, body section#rules .winners {
+      width: 30%; }
   html section#images, body section#images {
     padding-top: 12rem;
+    margin: 10rem 0;
     min-height: 100rem;
     z-index: 2; }
     html section#images a, html section#images a:link, html section#images a:visited, body section#images a, body section#images a:link, body section#images a:visited {
@@ -5917,12 +5923,16 @@ html, body {
         html section#win-goggles .win-call-bar .win-call-bar-content a, html section#win-goggles .win-call-bar .win-call-bar-content a:link, html section#win-goggles .win-call-bar .win-call-bar-content a:visited, body section#win-goggles .win-call-bar .win-call-bar-content a, body section#win-goggles .win-call-bar .win-call-bar-content a:link, body section#win-goggles .win-call-bar .win-call-bar-content a:visited {
           color: #ebebeb;
           font-style: oblique; }
+        html section#win-goggles .win-call-bar .win-call-bar-content a:focus, html section#win-goggles .win-call-bar .win-call-bar-content a:hover, html section#win-goggles .win-call-bar .win-call-bar-content a:active, body section#win-goggles .win-call-bar .win-call-bar-content a:focus, body section#win-goggles .win-call-bar .win-call-bar-content a:hover, body section#win-goggles .win-call-bar .win-call-bar-content a:active {
+          color: #ff8a00;
+          font-style: oblique; }
   html footer, body footer {
-    position: relative;
+    position: fixed;
     left: -4%;
-    bottom: 2%; }
+    bottom: -90rem; }
   html footer img, body footer img {
-    width: 108%; }
+    width: 108%;
+    left: -4%; }
   @media (max-width: 600px) {
     html footer img, body footer img {
       width: 108%; } }
@@ -5988,7 +5998,7 @@ html, body {
       margin: 0 0 20px; } }
   html .message, html .success, html .error, html .warning, body .message, body .success, body .error, body .warning {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
     color: #FBFBFB; }
   html .success, body .success {

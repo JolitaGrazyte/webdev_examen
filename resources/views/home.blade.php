@@ -50,7 +50,7 @@
             </div>
 
 
-        <div class="winners col-lg-4">
+        <div class="winners">
 
                 @include('winners')
 
@@ -62,11 +62,27 @@
 
         <hr>
 
+        <h2>Current period images - <em> please vote!</em></h2>
+
         <ul class="rig columns-3">
 
         @if(isset($images))
 
                 @each('images.single', $images, 'image', 'images.no-items')
+
+            @endif
+
+        </ul>
+
+        <hr>
+
+        <h2>Past periods images</h2>
+
+        <ul class="rig columns-4">
+
+            @if(isset($pp_images))
+
+                @each('images.single-past', $pp_images, 'image', 'images.no-items')
 
             @endif
 
@@ -85,7 +101,7 @@
 
 @section('footer')
 
-    <footer>
+    <footer data-0="bottom: -95rem;" data-3900="bottom: -95rem;" data-10000="bottom:0">
         @include('layouts.footer')
     </footer>
 

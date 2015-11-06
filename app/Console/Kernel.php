@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Period;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -28,12 +29,12 @@ class Kernel extends ConsoleKernel
         $schedule->command('inspire')
                  ->hourly();
 
-        $schedule->command('emails:send')->when( function (Period $period) {
+        $schedule->command('emails:send')->when( function ( Period $period ) {
 
                 for($i = 1; $i <= sizeof($period); ++$i){
-                    return $period->find($i)->end <= Carbon::now();
+                    return $period->find(1)->end <= Carbon::now();
                 }
 
-        });
+        })->everyMinute();
     }
 }

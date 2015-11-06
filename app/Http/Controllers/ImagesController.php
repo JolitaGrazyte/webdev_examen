@@ -31,7 +31,7 @@ class ImagesController extends Controller
     public function getImages()
     {
 
-        $images = $this->image->active()->get();
+        $images = $this->image->active()->latest('created_at')->get();
 
         return view('images.index', compact('images'));
     }
@@ -55,10 +55,9 @@ class ImagesController extends Controller
             $image  = $request->file('image');
             $name   = $request->get('name');
             $ip     = $request->getClientIp();
-            $user   = User::find($user_id)->first();
+            $user   = User::find($user_id);
 
-
-            $ip = '125.125.125.266'; // for testing
+//            $ip = '125.125.125.266'; // for testing
 
             if($image) {
 
@@ -68,13 +67,13 @@ class ImagesController extends Controller
                     $imgObj     = $this->image;
                     $img        = $img_resize->addImage($image, $imgObj, $name, $user_id, $ip);
 
-                    Session::flash('message', "Your image has been  uploaded successfully.  We wish you loads success!");
+                    Session::flash('message', "Your image has been  uploaded successfully.  We wish you loads of success!");
                     Session::flash('alert-class', 'alert-success');
 
                     Mail::send('emails.upload-note', ['user' => $user], function ($m) use ($user) {
 
 
-                        $m->from('gogglesl@zealoptics.com', 'Zeal Optics')->to('jolita@wgwstore.com', $user->username)->subject('Ski Goggles Game Upload!');
+                        $m->from('gogglesl@zealoptics.com', 'Zeal Optics')->to($user->email, $user->username)->subject('Ski Goggles Game Upload!');
 
 
                     });
@@ -82,13 +81,17 @@ class ImagesController extends Controller
                 }
                 catch(QueryException $e){
 
-//                    dd($e);
+                    if (strpos($e->getMessage(),'Duplicate') !== false) {
 
-                    redirect()->route('home')->withMessage('There were some problems uploading your image.');
+                        Session::flash('message', "No cheating bro!! You're disqualified now!! ");
+                        Session::flash('alert-class', 'error');
+                    }
+
+//                    dd(strpos($e->getMessage(),'Duplicate'));
+
                 }
 
             }
-
 
 
         return redirect()->route('home');

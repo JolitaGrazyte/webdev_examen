@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->tinyInteger('role'); // 0 = super_admin; 1 = participants
             $table->string('ip', 45);
+//            $table->string('ip', 45)->unique();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

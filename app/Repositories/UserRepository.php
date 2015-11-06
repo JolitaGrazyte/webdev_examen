@@ -7,9 +7,7 @@ use Session;
 
 class UserRepository {
 
-    public function findByEmailOrCreate($userData){
-//
-//        dd($userData);
+    public function findByEmailOrCreate($userData, $ip){
 
         $name = explode(' ', $userData->name);
 
@@ -32,6 +30,7 @@ class UserRepository {
                 'last_name' =>  $name[1],
                 'email'     =>  $userData->email,
                 'role'      =>  1,
+                'ip'        =>  $ip
 
             ]);
 

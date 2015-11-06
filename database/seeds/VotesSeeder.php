@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Database\Seeds\FileParse;
+//use App\Database\Seeds\FileParse;
 
 class VotesSeeder extends Seeder
 {
@@ -15,11 +15,10 @@ class VotesSeeder extends Seeder
     {
         DB::table('votes')->delete();
 
-        $file = storage_path('app').'/files/votes.csv';
+//        $file = storage_path('app').'/files/votes.csv';
+//        $votes = FileParse::parse_csv($file);
+//        DB::table('votes')->insert($votes);
 
-        $votes = FileParse::parse_csv($file);
-
-        DB::table('votes')->insert($votes);
-
+        factory(App\Votes::class, 200)->create();
     }
 }

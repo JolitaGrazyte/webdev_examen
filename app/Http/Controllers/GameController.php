@@ -23,12 +23,13 @@ class GameController extends Controller
 
     public function getAll(){
 
-        $current_period = Period::active()->first();
+        $period = new Period();
 
-//        dd($current_period);
+        $current_period = $period->active()->first();
+        $img  = new Image();
+
         $winners    = [];
-
-//      $periods = Period::all();
+        $pp_images  = $img->all();
 
         $rules = [
             'Hi everyone! Welcome to the Zeal Optics Ski Goggles Game!',
@@ -40,44 +41,42 @@ class GameController extends Controller
 
         ];
 
-        $past_periods = Period::past()->first();
+        $past_periods = $period->past()->get();
 
         if($past_periods){
 
             foreach($past_periods as $key => $p){
 
+//                dd($p);
 
-                $winners['Period '.($key+1)] = $this->getWinner($p);
+//                $winners['Period '.($key+1)] = $this->getWinner($p);
+                $winners['Period '.($key+1)] = Votes::winners($p);
 
             }
         }
 
-//        dd($winners);
+        $images = $current_period != null ? $img->with('author')->active($current_period)->get() : null;
 
-//        $images = Image::active($current_period)->get();
 
-        $images = $current_period != null ? Image::with('author')->active($current_period)->get() : null;
 
-//        dd($images);
-
-        return view('home', compact('images', 'winners', 'rules'));
+        return view('home', compact('images', 'winners', 'rules', 'pp_images'));
     }
 
-    public function getWinner($p){
-
-        $winners = Votes::whereHas('image', function($q) use($p){
-
-            $q->where('created_at', '>', $p['start'])->where('created_at', '<=', $p['end']);
-
-        })
-            ->with('image.author')->select('image_id', DB::raw('COUNT(image_id) as count'))
-            ->groupBy('image_id')
-            ->orderBy('count', 'desc')
-            ->take(3)->get();
-
-        return $winners;
-
-    }
+//    private function getWinner($p){
+//
+//        $winners = Votes::whereHas('image', function($q) use($p){
+//
+//            $q->where('created_at', '>', $p['start'])->where('created_at', '<=', $p['end']);
+//
+//        })
+//            ->with('image.author')->select('image_id', DB::raw('COUNT(image_id) as count'))
+//            ->groupBy('image_id')
+//            ->orderBy('count', 'desc')
+//            ->take(3)->get();
+//
+//        return $winners;
+//
+//    }
 
 
     public function postVotes( Request $request ){
@@ -89,26 +88,37 @@ class GameController extends Controller
 
         $exist = Votes::where('ip', $ip)->where('image_id', $img_id)->exists();
 
-//        $max = Votes::whereRaw('id = (select max(`id`) from votes)')->get();
-
 //        dd($exist);
 
-//        if(!$exist){
-//            $vote = Votes::create($request->all());
-//            $vote->ip = $ip;
-//            $vote->save();
-//        }
-//        else {
-//            Session::flash('message', 'No cheating !!! You can't vote for the same image 2 times');
-//        }
+        if(!$exist){
+            $vote = Votes::create($request->all());
+            $vote->ip = $ip;
+            $vote->save();
 
-        $vote = Votes::create($request->all());
-        $vote->ip = $ip;
-        $vote->save();
+            Session::flash('message', "Thank you for voting!");
+            Session::flash('alert-class', 'success');
+        }
+        else {
+            Session::flash('message', "No cheating !!! You can't vote for the same image 2 times");
+            Session::flash('alert-class', 'warning');
+        }
+
+//        $vote = Votes::create($request->all());
+//        $vote->ip = $ip;
+//        $vote->save();
 
         return redirect()->route('home');
 
     }
+//
+//    public function makeWinnersMail($p){
+//
+//        $pp = Period::find(1);
+//        $winners = $this->getWinner($pp);
+//
+//        return view('');
+//
+//    }
 
 
 }

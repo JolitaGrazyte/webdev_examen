@@ -121,9 +121,10 @@ class PeriodsController extends Controller
 
    private function addPeriod($request, $id = null){
 
+        $carbon = new Carbon();
         $period = $id == null ? $this->period : $this->period->find($id);
-        $period->start  = Carbon::createFromFormat('Y-m-d', $request->get('start'));
-        $period->end    = Carbon::createFromFormat('Y-m-d', $request->get('end'));
-        $p = $period->save();
+        $period->start  = $carbon->createFromFormat('Y-m-d', $request->get('start'));
+        $period->end    = $carbon->createFromFormat('Y-m-d', $request->get('end'));
+        $period->save();
     }
 }

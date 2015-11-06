@@ -179,7 +179,7 @@
     }
 
     a:hover,
-    a:focus {
+    a:focus, a:active {
      color: #ff8a00;
      text-decoration: underline;
     }
@@ -190,7 +190,12 @@
    section#rules{
 
     padding-top: 18rem;
-    padding-bottom: 10rem;
+    padding-bottom: 15rem;
+
+    div.rules, div.winners{
+     float: left;
+    }
+
 
     a, a:link, a:visited {
      line-height: 4rem;
@@ -198,11 +203,16 @@
     }
 
     .rules{
+     width: 70%;
      font-size: 2rem;
      text-align: justify;
      line-height:2rem;
      padding: 1rem 2rem 1rem 2rem;
      font-style: oblique;
+    }
+
+    .winners{
+     width: 30%;
     }
 
     //background-color: #ff8000;
@@ -211,6 +221,7 @@
 
   section#images{
    padding-top: 12rem;
+   margin: 10rem 0;
    min-height: 100rem;
    //background-color: lightpink;
    z-index: 2;
@@ -267,6 +278,11 @@
       font-style: oblique;
      }
 
+     a:focus, a:hover, a:active{
+      color: #ff8a00;
+      font-style: oblique;
+     }
+
     }
 
    }
@@ -276,17 +292,16 @@
 
 //== Footer ==//
  footer{
-
-   position: relative;
-   //z-index: -2;
-   left: -4%;
-   bottom: 2%;
+  position: fixed;
+  left: -4%;
+  bottom: -90rem;
 
   }
 
   footer img{
    width: 108%;
-   //margin-top: 5rem;
+   left: -4%;
+
   }
 
 
@@ -384,7 +399,7 @@
 
   .message {
    border: 1px solid #ccc;
-   padding: 10px;
+   padding: 15px;
    text-align: center;
    color: #FBFBFB;
 

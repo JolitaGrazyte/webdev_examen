@@ -17,7 +17,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
     $name = explode(' ', $faker->name);
 
+//    $users = [];
 
+//    dd($faker->unique()->ipv4);
+
+    $date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', '2015-11-'.mt_rand(1, 5).' '.mt_rand(0, 24).':00:00');
 
     $user =  [
         'username'      => $faker->name,
@@ -27,14 +31,23 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'password'      => Hash::make('testing'),
         'remember_token' => str_random(10),
         'role'          => 1,
-        'ip'            => inet_pton(rnd().'.'.rnd().'.'.rnd().'.'.rnd())
+        'ip'            => $faker->unique()->ipv4,
+//       'ip'            => inet_pton($faker->unique()->ipv4)
+        'created_at'    =>  $date,
+        'updated_at'    =>  $date
     ];
 
-//    dd($user);
-
     return $user;
+
 });
 
-function rnd(){
-    return rand(0, 255);
-}
+
+$factory->define(App\Votes::class, function (Faker\Generator $faker) {
+    return [
+        'image_id'  => rand(1, 15),
+        'ip'        => $faker->unique()->ipv4
+
+    ];
+});
+
+

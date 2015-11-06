@@ -19,6 +19,9 @@ class PeriodsSeeder extends Seeder
         $dur = 1;
 
         $p_start     = '2015-11-01 00:00:00';
+//        $p_start     = $carbon->now()->subWeek(2);
+
+//        dd($p_start);
         $periods = [];
 
         for($i = 1; $i<= 4; ++$i){
@@ -29,7 +32,9 @@ class PeriodsSeeder extends Seeder
 
                     [
                         'start' =>  $p_start,
-                        'end'   =>  $carbon->createFromFormat($format, $p_start)->addWeek($dur)->toDateTimeString()
+//                        'end'   =>  $carbon->createFromFormat($format, $p_start)->addWeek($dur)->toDateTimeString()
+                        'end'   =>  $carbon->createFromFormat($format, $p_start)->addDays(4)->toDateTimeString()
+
                     ];
 
 

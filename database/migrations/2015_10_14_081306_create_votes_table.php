@@ -16,8 +16,7 @@ class CreateVotesTable extends Migration
 
             $table->increments('id');
             $table->integer('image_id')->unsigned();
-            $table->string('ip');
-//                ->unique();
+            $table->string('ip')->unique();
             $table->timestamps();
 
         });

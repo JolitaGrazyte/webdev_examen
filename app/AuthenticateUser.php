@@ -4,7 +4,7 @@ namespace App;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use Illuminate\Contracts\Auth\Guard;
 use App\Repositories\UserRepository;
-use Request;
+use App\Http\Requests\SocialRegister;
 
 
 class AuthenticateUser {
@@ -22,16 +22,21 @@ class AuthenticateUser {
      */
     private $auth;
 
+    private $ip;
+
     /**
      * @param UserRepository $user
      * @param Socialite $socialite
      * @param Guard $auth
      */
-    public function __construct( UserRepository $user, Socialite $socialite, Guard $auth ){
+    public function __construct( UserRepository $user, Socialite $socialite, Guard $auth, SocialRegister $request){
 
-        $this->users     = $user;
-        $this->socialite = $socialite;
-        $this->auth      = $auth;
+//        dd($request->getClientIp());
+        $this->users        = $user;
+        $this->socialite    = $socialite;
+        $this->auth         = $auth;
+        $this->ip           = $request->getClientIp();
+
     }
 
     /**
@@ -44,12 +49,12 @@ class AuthenticateUser {
 
         if(!$hasCode) return $this->getAuthorizationFirst($social_provider);
 
-        $user = $this->users->findByEmailOrCreate($this->getSocialUser($social_provider));
+        $user = $this->users->findByEmailOrCreate($this->getSocialUser($social_provider), $this->ip);
 
         if(!$user){
 
             Session::flash('message', "Something went wrong!");
-            Session::flash('alert-class', 'alert-danger');
+            Session::flash('alert-class', 'error');
 
 
         }
