@@ -30,7 +30,7 @@ class Image extends Model
     }
     public function scopePastperiod($query, $p){
 
-        return $query->where('created_at', '>', $p->end);
+        return $query->where('created_at', '<', $p->end);
 
     }
 

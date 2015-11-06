@@ -32,6 +32,8 @@ class GameController extends Controller
         $winners    = [];
         $pp_images = $img->pastperiod($current_period)->get();
 
+//        dd($pp_images);
+
         $rules = [
             'Hi everyone! Welcome to the Zeal Optics Ski Goggles Game!',
             'Competitions goes on for 4 periods.', 'The photo with the most votes wins!',
