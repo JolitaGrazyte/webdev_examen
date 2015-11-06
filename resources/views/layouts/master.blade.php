@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<header>
+<header data-0="height: 25rem;" data-800="height: 15rem;">
     @include('layouts.nav')
 </header>
 

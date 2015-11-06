@@ -26,30 +26,39 @@ class GameController extends Controller
         $current_period = Period::active()->first();
 
 //        dd($current_period);
+        $winners    = [];
 
-        $periods = Period::all();
+//      $periods = Period::all();
 
         $rules = [
             'Hi everyone! Welcome to the Zeal Optics Ski Goggles Game!',
             'Competitions goes on for 4 periods.', 'The photo with the most votes wins!',
             'Every period a new winner is selected!',
             'The rules are simple: register, post the most amazing and unique photo from your last ski vacation.',
-            'Sit back, relax and wait until the end of the period!'
+            'Sit back, relax and wait until the end of the period!',
+            'After every period the winners will published on this page.'
 
         ];
 
-        $past_periods = Period::past()->get();
+        $past_periods = Period::past()->first();
 
+        if($past_periods){
 
-        foreach($past_periods as $key => $p){
+            foreach($past_periods as $key => $p){
 
 
                 $winners['Period '.($key+1)] = $this->getWinner($p);
 
+            }
         }
 
 //        dd($winners);
-        $images = $current_period != null ? Image::active($current_period)->get() : null;
+
+//        $images = Image::active($current_period)->get();
+
+        $images = $current_period != null ? Image::with('author')->active($current_period)->get() : null;
+
+//        dd($images);
 
         return view('home', compact('images', 'winners', 'rules'));
     }

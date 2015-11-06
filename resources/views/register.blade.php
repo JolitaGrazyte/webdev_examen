@@ -4,7 +4,7 @@
 
 @section('content')
 
-@include('errors.errors')
+
 
 <div class="content-wrap">
 
@@ -13,6 +13,8 @@
         <h1>Register and win</h1>
 
         <div class="panel panel-default">
+
+            @include('errors.errors')
 
             <div class="panel-body">
 

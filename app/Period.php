@@ -21,7 +21,7 @@ class Period extends Model
 
         $now = Carbon::now();
 
-        return $query->where('start', '<', $now)->where('end', '>', $now)->first();
+        return $query->where('start', '<', $now)->where('end', '>', $now);
 
 
     }

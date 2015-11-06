@@ -48,6 +48,8 @@ class ImageResize {
         $entry->filename = $filename . '.' . $extension;
         $entry->save();
 
+
+
         return $entry;
 
     }

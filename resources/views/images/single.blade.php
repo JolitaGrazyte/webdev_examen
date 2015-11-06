@@ -1,11 +1,13 @@
-<figure class="col-sm-3">
-    <img src="{{ route('getImage', [$image->filename, 'small']) }}" alt="{{ $image->name }}">
-    <div class="votes"> Votes: {{ count($image->votes) }}</div>
-    <caption> Title: <em>{{$image->name}}</em></caption>
-    <figcaption>Title: <em>{{$image->name}}</em></figcaption>
+<li>
+    <img src="{{ route('getImage', [$image->filename, 'medium']) }}" alt="{{ $image->name }}">
+    <h3><em>{{$image->name}}</em> <span class="pull-right">Votes: {{ count($image->votes) }}</span></h3>
 
-    {!! Form::open(['route' =>  ['postVote'], 'class' => '', 'role' => 'form']) !!}
-    {!! Form::hidden('image_id', $image->id) !!}
-    {!! Form::submit('Place your vote !!!', ['class' => 'btn btn-link form-control']) !!}
-    {!! Form::close() !!}
-</figure>
+    <p>Posted by: {{ isset($image->author) ? $image->author->first_name : '' }} {{ isset($image->author) ? $image->author->last_name.',' : '' }} <em>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $image->created_at)->diffForHumans() }}</em></p>
+
+    <div class="vote">
+        {!! Form::open(['route' =>  ['postVote'], 'class' => '', 'role' => 'form']) !!}
+        {!! Form::hidden('image_id', $image->id) !!}
+        {!! Form::submit('Place your vote !!!', ['class' => 'vote-btn']) !!}
+        {!! Form::close() !!}
+    </div>
+</li>

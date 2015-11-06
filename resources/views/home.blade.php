@@ -4,15 +4,12 @@
 
 @section('content')
 
-    @include('layouts.message')
-
-
-    <section id="win-goggles" class="col-lg-12">
+    <section id="win-goggles">
 
         <div class="bckg"
 
-             data-center="background-position: 50% 310px;"
-             data-top-bottom="background-position: 50% -300px;"
+             data-center="background-position: 50% 300px;"
+             data-top-bottom="background-position: 50% 70px;"
              data-anchor-target="#win-goggles" >
 
         </div>
@@ -23,23 +20,24 @@
 
                  data-0="opacity: 1"
                  data-200="opacity: 0"
+                 data-anchor-target=".brand-center"
                  >
 
                 <h2>PLAY & WIN amazing Zeal Optics Tehnology</h2>
-                <a href="">find out more</a>
+                <a href="#rules">find out more</a>
             </div>
 
         </div>
 
     </section>
 
-    <section id="home">
+    <section id="rules">
 
-        <div class="col-lg-8">
+        <hr>
 
-            <h1>Game rules</h1>
+        <h1>Game rules</h1>
 
-            <div class="rules">
+        <div class="rules">
 
                     @foreach($rules as $rule)
 
@@ -47,15 +45,12 @@
 
                     @endforeach
 
-                        <div><a href="">Register now</a></div>
-                        <div><a href="">Check the amazing prizes you can win !</a></div>
+                        <div><a href="{{ route('register') }}">Register now  >></a></div>
+                        <div><a href="{{ route('home') }}#prizes">Check the amazing prizes you can win ! </a></div>
             </div>
 
-        </div>
 
-        <div class="col-lg-4">
-
-            <h2>section winners</h2>
+        <div class="winners col-lg-4">
 
                 @include('winners')
 
@@ -63,25 +58,25 @@
 
     </section>
 
-
     <section id="images">
 
-        <h2>section images</h2>
+        <hr>
 
-        <div class="col-lg-12">
-            <h2></h2>
+        <ul class="rig columns-3">
 
-            <hr>
+        @if(isset($images))
 
-            @include('images.index')
+                @each('images.single', $images, 'image', 'images.no-items')
 
-        </div>
+            @endif
 
+        </ul>
 
     </section>
 
     <section id="win">
 
+        <hr>
         @include('goggles-info')
 
     </section>

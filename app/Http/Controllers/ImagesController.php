@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Image;
 use App\Http\Requests\AddImageRequest;
+use App\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Session;
 use Storage;
 use Auth;
 use App\Libraries\ImageResize;
+use Illuminate\Support\Facades\Mail;
 
 class ImagesController extends Controller
 {
@@ -36,7 +38,7 @@ class ImagesController extends Controller
 
     public function getUpload($user_id = null){
 
-        Session::flash('message', "Upload your photos!");
+        Session::flash('message', "Upload your photo!");
         Session::flash('alert-class', 'alert-success');
 
         return view('upload')->withTitle('Upload')->with('user_id', $user_id);
@@ -45,7 +47,7 @@ class ImagesController extends Controller
     /**
      * @param AddImageRequest $request
      * @param $user_id
-     * @return
+     * @return \Illuminate\Http\RedirectResponse
      * @internal param $image
      */
     public function postUpload( AddImageRequest $request, $user_id ){
@@ -53,11 +55,10 @@ class ImagesController extends Controller
             $image  = $request->file('image');
             $name   = $request->get('name');
             $ip     = $request->getClientIp();
+            $user   = User::find($user_id)->first();
 
-//        dd($ip);
-//        $user_id = 1;
 
-        $ip = '125.125.125.266';
+            $ip = '125.125.125.266'; // for testing
 
             if($image) {
 
@@ -67,10 +68,21 @@ class ImagesController extends Controller
                     $imgObj     = $this->image;
                     $img        = $img_resize->addImage($image, $imgObj, $name, $user_id, $ip);
 
+                    Session::flash('message', "Your image has been  uploaded successfully.  We wish you loads success!");
+                    Session::flash('alert-class', 'alert-success');
+
+                    Mail::send('emails.upload-note', ['user' => $user], function ($m) use ($user) {
+
+
+                        $m->from('gogglesl@zealoptics.com', 'Zeal Optics')->to('jolita@wgwstore.com', $user->username)->subject('Ski Goggles Game Upload!');
+
+
+                    });
+
                 }
                 catch(QueryException $e){
 
-                    dd($e);
+//                    dd($e);
 
                     redirect()->route('home')->withMessage('There were some problems uploading your image.');
                 }
@@ -78,7 +90,8 @@ class ImagesController extends Controller
             }
 
 
-        return redirect()->route('home')->withMessage('Successfully saved!');
+
+        return redirect()->route('home');
 
     }
 

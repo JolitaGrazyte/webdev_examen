@@ -17,13 +17,24 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
     $name = explode(' ', $faker->name);
 
-    return [
+
+
+    $user =  [
+        'username'      => $faker->name,
         'first_name'    => $name[0],
         'last_name'     => $name[1],
         'email'         => $faker->email,
         'password'      => Hash::make('testing'),
         'remember_token' => str_random(10),
         'role'          => 1,
-        'ip'            => inet_pton('123.123.123.123')
+        'ip'            => inet_pton(rnd().'.'.rnd().'.'.rnd().'.'.rnd())
     ];
+
+//    dd($user);
+
+    return $user;
 });
+
+function rnd(){
+    return rand(0, 255);
+}

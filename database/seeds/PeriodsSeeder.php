@@ -18,7 +18,7 @@ class PeriodsSeeder extends Seeder
         $format = 'Y-m-d H:i:s';
         $dur = 1;
 
-        $p_start     = '2015-10-01 00:00:00';
+        $p_start     = '2015-11-01 00:00:00';
         $periods = [];
 
         for($i = 1; $i<= 4; ++$i){

@@ -1,29 +1,30 @@
-@foreach($winners as $key => $p_winners)
+@if(isset($winners))
 
-    @if(count($p_winners))
+    @foreach($winners as $key => $p_winners)
 
-        <h1>Winners</h1>
+        @if(count($p_winners))
 
-        <h3> {{ ucfirst($key) }} </h3>
-        <div>
-            @foreach($p_winners as $winner )
+            <h1>Winners</h1>
 
-                {{--{{ dd($winner->image->author) }}--}}
+            <h3> {{ ucfirst($key) }} </h3>
+            <div>
+                @foreach($p_winners as $winner )
 
-                <div>Winner: {{ $winner->image->author['first_name'] }} {{ $winner->image->author['last_name'] }}
-                    {{--<strong> {{ $winner->image->author->first_name }} {{ $winner->image->author->last_name }} </strong>--}}
+                    {{--{{ dd($winner->image->author) }}--}}
 
-                </div>
-                <div>Image title: <em>{{ $winner->image->name }} </em></div>
+                    <div>Winner: {{ $winner->image->author['first_name'] }} {{ $winner->image->author['last_name'] }}
+                        {{--<strong> {{ $winner->image->author->first_name }} {{ $winner->image->author->last_name }} </strong>--}}
 
-            @endforeach
+                    </div>
+                    <div>Image title: <em>{{ $winner->image->name }} </em></div>
 
-        </div>
+                @endforeach
 
-    @endif
+            </div>
 
-@endforeach
+        @endif
+
+    @endforeach
 
 
-
-
+@endif

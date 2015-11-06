@@ -5,8 +5,8 @@ return [
     'images'    =>  [
 
         'paths' => [
-            'input'     =>  public_path().'/uploads',
-            'output'    =>  public_path().'/uploads',
+            'input'     =>  storage_path('app').'/uploads',
+            'output'    =>  storage_path('app').'/uploads',
         ],
 
         'sizes' => [

@@ -4,9 +4,9 @@
 
 @section('content')
 
-    @include('layouts.message')
-
         <div class="content-wrap">
+
+{{--            @include('layouts.message')--}}
 
             <div class="col-md-5 my-form">
 
