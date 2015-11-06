@@ -82,7 +82,7 @@ class GameController extends Controller
             Session::flash('alert-class', 'alert-success');
         }
         else {
-            Session::flash('message', "No cheating !!! You can't vote for the same image 2 times");
+            Session::flash('message', "No cheating !!! You can't vote for the same image more then ONE time!!!");
             Session::flash('alert-class', 'alert-warning');
         }
 

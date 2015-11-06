@@ -29,6 +29,7 @@ class UserRepository {
 
             $user = User::create([
 
+                'username'  =>  $name,
                 'first_name'=>  $name[0],
                 'last_name' =>  $name[1],
                 'email'     =>  $userData->email,

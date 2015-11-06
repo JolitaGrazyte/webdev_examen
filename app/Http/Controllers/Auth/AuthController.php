@@ -6,14 +6,13 @@ use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\User;
-//use Illuminate\Support\Facades\Validator;
 use App\AuthenticateUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\AuthenticateUserListener;
 use App\Http\Requests\RegisterRequest;
-//use App\Repositories\UserRepository;
+
 
 class AuthController extends Controller implements AuthenticateUserListener
 {

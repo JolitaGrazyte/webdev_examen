@@ -46,7 +46,7 @@
                     @endforeach
 
                         <div><a href="{{ route('register') }}">Register now  >></a></div>
-                        <div><a href="{{ route('home') }}#prizes">Check the amazing prizes you can win ! </a></div>
+                        <div><a href="{{ route('home') }}#win">Check the amazing prizes you can win ! </a></div>
             </div>
 
 

@@ -5,11 +5,11 @@
 </div>
 
 
-<nav data-0="top:0; width: 100%;" data-900="top: -100rem;" data-4800="top:-100%;">
+<nav data-0="top:0; width: 100%;" data-900="top: -100rem;" data-800="top:-100%;">
     <ul class="navbar-nav">
         <li><a class="link" name="register" id="play" href="{{ route('register') }}">Play</a></li>
         <li><a class="link" name="images" id="vote" href="{{ route('home') }}#images">Vote</a></li>
-        <li><a class="link" name="prizes" id="win" href="{{ route('home') }}#prizes">Win</a></li>
+        <li><a class="link" name="prizes" id="win" href="{{ route('home') }}#win">Win</a></li>
 
     </ul>
 </nav>

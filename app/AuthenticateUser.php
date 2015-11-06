@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use Illuminate\Contracts\Auth\Guard;
 use App\Repositories\UserRepository;
@@ -28,10 +29,10 @@ class AuthenticateUser {
      * @param UserRepository $user
      * @param Socialite $socialite
      * @param Guard $auth
+     * @param SocialRegister $request
      */
     public function __construct( UserRepository $user, Socialite $socialite, Guard $auth, SocialRegister $request){
 
-//        dd($request->getClientIp());
         $this->users        = $user;
         $this->socialite    = $socialite;
         $this->auth         = $auth;

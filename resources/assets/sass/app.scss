@@ -189,7 +189,8 @@
 
    section#rules{
 
-    padding-top: 18rem;
+    padding-top: 5rem;
+    margin: 8rem 0;
     padding-bottom: 15rem;
 
     div.rules, div.winners{
@@ -220,8 +221,8 @@
    }
 
   section#images{
-   padding-top: 12rem;
-   margin: 10rem 0;
+   padding-top: 5rem;
+   margin: 8rem 0;
    min-height: 100rem;
    //background-color: lightpink;
    z-index: 2;
@@ -231,8 +232,35 @@
 
  }
   section#win{
+   min-height: 50rem;
    //background-color: lightskyblue;
    //z-index: -1;
+
+   .text{
+
+    width: 50%;
+    margin-right: 2rem;
+    float: left;
+
+
+      p{
+        padding-left: 2rem;
+      }
+   }
+   .video{
+
+    iframe{
+
+     padding: 10px;
+     background: #fff;
+     border: 1px solid #ddd;
+     box-shadow: 0 0 5px #ddd;
+     box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+    }
+
+   }
 
  }
 
@@ -319,7 +347,7 @@
 
   ul.rig {
     list-style: none;
-    margin-left: -5%; /* should match li left margin */
+    margin-left: -5%;
     h1, h2, a, a:link, a:visited{
      margin-left: 4rem;
     }
@@ -408,6 +436,7 @@
   .success {
    @extend .message;
    border-color: lightgreen;
+   background-color: #27ed97;
   }
 
   .error {
@@ -420,6 +449,7 @@
   .warning {
    @extend .message;
    border-color: #ed8920;
+   background-color: #feb818;
   }
 
 

@@ -5870,7 +5870,8 @@ html, body {
       color: #ff8a00;
       text-decoration: underline; }
   html section#rules, body section#rules {
-    padding-top: 18rem;
+    padding-top: 5rem;
+    margin: 8rem 0;
     padding-bottom: 15rem; }
     html section#rules div.rules, html section#rules div.winners, body section#rules div.rules, body section#rules div.winners {
       float: left; }
@@ -5887,12 +5888,28 @@ html, body {
     html section#rules .winners, body section#rules .winners {
       width: 30%; }
   html section#images, body section#images {
-    padding-top: 12rem;
-    margin: 10rem 0;
+    padding-top: 5rem;
+    margin: 8rem 0;
     min-height: 100rem;
     z-index: 2; }
     html section#images a, html section#images a:link, html section#images a:visited, body section#images a, body section#images a:link, body section#images a:visited {
       font-size: 3rem; }
+  html section#win, body section#win {
+    min-height: 50rem; }
+    html section#win .text, body section#win .text {
+      width: 50%;
+      margin-right: 2rem;
+      float: left; }
+      html section#win .text p, body section#win .text p {
+        padding-left: 2rem; }
+    html section#win .video iframe, body section#win .video iframe {
+      padding: 10px;
+      background: #fff;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 5px #ddd;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box; }
   html section#win-goggles, body section#win-goggles {
     position: relative;
     height: 68rem;
@@ -5938,8 +5955,7 @@ html, body {
       width: 108%; } }
   html ul.rig, body ul.rig {
     list-style: none;
-    margin-left: -5%;
-    /* should match li left margin */ }
+    margin-left: -5%; }
     html ul.rig h1, html ul.rig h2, html ul.rig a, html ul.rig a:link, html ul.rig a:visited, body ul.rig h1, body ul.rig h2, body ul.rig a, body ul.rig a:link, body ul.rig a:visited {
       margin-left: 4rem; }
     html ul.rig .vote-btn, body ul.rig .vote-btn {
@@ -6002,11 +6018,13 @@ html, body {
     text-align: center;
     color: #FBFBFB; }
   html .success, body .success {
-    border-color: lightgreen; }
+    border-color: lightgreen;
+    background-color: #27ed97; }
   html .error, body .error {
     border-color: lightpink;
     background-color: #dd0000; }
   html .warning, body .warning {
-    border-color: #ed8920; }
+    border-color: #ed8920;
+    background-color: #feb818; }
 
 /*# sourceMappingURL=app.css.map */
