@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\User;
@@ -69,6 +70,8 @@ class AuthController extends Controller implements AuthenticateUserListener
 //      dd($user_w_ip_exists);
 
         if($user_w_ip_exists){
+
+
 
 //          dd($user_w_ip_exists->delete());
 

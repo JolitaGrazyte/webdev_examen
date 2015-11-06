@@ -23,6 +23,8 @@ class CreateImagesTable extends Migration
 //            $table->string('ip');
             $table->string('ip')->unique();
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
