@@ -30,7 +30,7 @@ class GameController extends Controller
         $img  = new Image();
 
         $winners    = [];
-        $pp_images  = $img->all();
+        $pp_images = [];
 
         $rules = [
             'Hi everyone! Welcome to the Zeal Optics Ski Goggles Game!',
@@ -51,8 +51,13 @@ class GameController extends Controller
 //                $winners['Period '.($key+1)] = $this->getWinner($p);
                 $winners['Period '.($key+1)] = Votes::winners($p);
 
+                $pp_images = [$img->pastperiod($p)->get()];
+//                array_push($pp_images, $img->pastperiod($p));
+
             }
         }
+
+        dd($pp_images);
 
         $images = $current_period != null ? $img->with('author')->active($current_period)->get() : null;
 

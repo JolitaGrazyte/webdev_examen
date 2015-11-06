@@ -28,6 +28,11 @@ class Image extends Model
         return $query->where('created_at', '>=', $p->start)->where('created_at', '<=', $p->end);
 
     }
+    public function scopePastperiod($query, $p){
+
+        return $query->where('created_at', '>', $p->end);
+
+    }
 
 
 }

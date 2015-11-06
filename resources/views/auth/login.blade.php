@@ -4,7 +4,7 @@
 
 @section('content')
 
-
+    <div class="content-wrap">
 
     <div class="col-md-5 my-form">
 
@@ -70,6 +70,7 @@
                         {{--</div>--}}
             </div>
         </div>
+    </div>
     </div>
 
 @stop
