@@ -8,8 +8,9 @@ use Carbon\Carbon;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Votes;
-use Illuminate\Support\Facades\DB;
-use App\User;
+//use Illuminate\Support\Facades\DB;
+//use App\User;
+use Session;
 
 class GameController extends Controller
 {
@@ -60,22 +61,6 @@ class GameController extends Controller
         return view('home', compact('images', 'winners', 'rules', 'pp_images'));
     }
 
-//    private function getWinner($p){
-//
-//        $winners = Votes::whereHas('image', function($q) use($p){
-//
-//            $q->where('created_at', '>', $p['start'])->where('created_at', '<=', $p['end']);
-//
-//        })
-//            ->with('image.author')->select('image_id', DB::raw('COUNT(image_id) as count'))
-//            ->groupBy('image_id')
-//            ->orderBy('count', 'desc')
-//            ->take(3)->get();
-//
-//        return $winners;
-//
-//    }
-
 
     public function postVotes( Request $request ){
 
@@ -108,15 +93,6 @@ class GameController extends Controller
         return redirect()->route('home');
 
     }
-//
-//    public function makeWinnersMail($p){
-//
-//        $pp = Period::find(1);
-//        $winners = $this->getWinner($pp);
-//
-//        return view('');
-//
-//    }
 
 
 }
