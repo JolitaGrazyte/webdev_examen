@@ -71,7 +71,6 @@ class AuthController extends Controller implements AuthenticateUserListener
         if($user_w_ip_exists){
 
 
-
 //          dd($user_w_ip_exists->delete());
 
             $user_w_ip_exists->delete();

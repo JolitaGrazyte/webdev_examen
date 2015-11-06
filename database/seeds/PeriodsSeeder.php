@@ -33,7 +33,7 @@ class PeriodsSeeder extends Seeder
                     [
                         'start' =>  $p_start,
 //                        'end'   =>  $carbon->createFromFormat($format, $p_start)->addWeek($dur)->toDateTimeString()
-                        'end'   =>  $carbon->createFromFormat($format, $p_start)->addDays(4)->toDateTimeString()
+                        'end'   =>  $carbon->createFromFormat($format, $p_start)->addDays(6)->toDateTimeString()
 
                     ];
 
