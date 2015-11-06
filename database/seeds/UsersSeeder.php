@@ -23,7 +23,7 @@ class UsersSeeder extends Seeder
                 'username'      => 'admin',
                 'first_name'    => 'Jolita',
                 'last_name'     => 'Grazyte',
-                'email'         => 'test@test.be',
+                'email'         => 'jolita.grazyte@student.kdg.be',
                 'password'      => Hash::make('testing'),
                 'role'          => 0,
                 'gender'        => 1,

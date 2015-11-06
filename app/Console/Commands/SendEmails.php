@@ -69,7 +69,7 @@ class SendEmails extends Command
         Mail::send('emails.notification',  $data, function ($m) use ($user) {
 
 
-            $m->from('gogglesl@zealoptics.com', 'Zeal Optics')->to('jolita@wgwstore.com', $user->username)->subject('Ski Goggles Game Winners!');
+            $m->from('gogglesl@zealoptics.com', 'Zeal Optics')->to($user->email, $user->username)->subject('Ski Goggles Game Winners!');
 
 
         });
