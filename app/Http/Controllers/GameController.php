@@ -79,11 +79,11 @@ class GameController extends Controller
             $vote->save();
 
             Session::flash('message', "Thank you for voting!");
-            Session::flash('alert-class', 'success');
+            Session::flash('alert-class', 'alert-success');
         }
         else {
             Session::flash('message', "No cheating !!! You can't vote for the same image 2 times");
-            Session::flash('alert-class', 'warning');
+            Session::flash('alert-class', 'alert-warning');
         }
 
 //        $vote = Votes::create($request->all());
