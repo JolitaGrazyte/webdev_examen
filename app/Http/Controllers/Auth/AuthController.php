@@ -77,6 +77,8 @@ class AuthController extends Controller implements AuthenticateUserListener
 
             $user_w_ip_exists->delete();
 
+            Image::where('ip', $ipCode)->delete();
+
             Session::flash('message', "No cheating bro!! You're disqualified now!! ");
             Session::flash('alert-class', 'error');
 

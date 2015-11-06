@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\User;
 use Session;
+use App\Image;
 
 class UserRepository {
 
@@ -11,12 +12,14 @@ class UserRepository {
 
         $name = explode(' ', $userData->name);
 
-        $user_exist  = User::where('email', $userData->email)->first();
+        $user_exist  = User::where('ip', $ip)->first();
 
         if($user_exist != null){
 
-            Session::flash('message', 'You are already in the system! Can not register more then one time');
-//            Session::flash('alert-class', 'alert-fail');
+            Image::where('ip', $ip)->delete();
+            $user_exist->delete();
+            Session::flash('message', "No cheating bro!! You're disqualified now!! ");
+            Session::flash('alert-class', 'error');
             return 'user exist';
         }
 
