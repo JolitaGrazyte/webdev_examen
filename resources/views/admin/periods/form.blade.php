@@ -4,20 +4,31 @@
 
     <div class="col-md-8">
 
-        {!! Form::date('start', isset($period)? $period->start :null, ['class' => 'form-control', 'placeholder' => 'period start']) !!}
+    {!! Form::text('start', isset($period)? $period->start :null, ['class' => ' datetimepicker form-control', 'placeholder' => isset($period)? $period->start:'period start']) !!}
+
 
     </div>
-</div>
 
+
+</div>
 
 <div class="form-group">
 
-    {!! Form::label('end', 'Period end:', ['class' => 'col-md-3 control-label']) !!}
+    {!! Form::label('start', 'Period end:', ['class' => 'col-md-3 control-label']) !!}
+
 
     <div class="col-md-8">
 
-        {!! Form::date('end', isset($period)? $period->end :null, ['class' => 'form-control', 'placeholder' => 'period end']) !!}
+        {!! Form::text('end', isset($period)? $period->end :null, ['class' => 'datetimepicker form-control', 'placeholder' => isset($period)? $period->start:'period end']) !!}
 
     </div>
 
+
 </div>
+
+<script>
+    $(function () {
+        $( ".datetimepicker" ).datetimepicker();
+    });
+
+</script>

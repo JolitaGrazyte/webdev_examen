@@ -5769,24 +5769,25 @@ html, body {
   /* class for 3 columns */
   /* class for 4 columns */ }
   html .content-wrap, body .content-wrap {
+    margin: 15rem 0;
     padding: 10rem 0;
     min-height: 900px; }
-    html .content-wrap .form-control, body .content-wrap .form-control {
-      border-radius: 0;
-      height: 4.7rem; }
+    html .content-wrap .panel, body .content-wrap .panel {
+      margin-top: 2rem; }
     html .content-wrap .my-form, body .content-wrap .my-form {
-      position: relative;
-      z-index: 5;
-      top: 18rem;
+      margin-top: 5rem;
       margin-bottom: 15rem;
       left: 50%;
       min-height: 500px;
       padding-bottom: 2rem;
       transform: translateX(-50%);
       -webkit-transform: translateX(-50%); }
-    html .content-wrap .my-btn, body .content-wrap .my-btn {
-      background: #033067;
-      color: #F7F7F9; }
+      html .content-wrap .my-form .form-control, body .content-wrap .my-form .form-control {
+        border-radius: 0;
+        height: 4.7rem; }
+      html .content-wrap .my-form .my-btn, body .content-wrap .my-form .my-btn {
+        background: #033067;
+        color: #F7F7F9; }
     html .content-wrap .my-social-btn, html .content-wrap .my-btn-fb, html .content-wrap .my-btn-gplus, body .content-wrap .my-social-btn, body .content-wrap .my-btn-fb, body .content-wrap .my-btn-gplus {
       height: 4.7rem; }
     html .content-wrap .my-social-btns, body .content-wrap .my-social-btns {
@@ -5950,6 +5951,26 @@ html, body {
   html footer img, body footer img {
     width: 108%;
     left: -4%; }
+  @media (max-width: 800px) {
+    html section#win .text, body section#win .text {
+      width: 100%;
+      margin-right: 2rem;
+      float: left; }
+    html .my-form .form-control, body .my-form .form-control {
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%; }
+    html ul.grid-nav li, body ul.grid-nav li {
+      display: block;
+      margin: 0 0 5px; }
+    html ul.grid-nav li a, body ul.grid-nav li a {
+      display: block; }
+    html ul.rig, body ul.rig {
+      margin-left: 0; }
+    html ul.rig li, body ul.rig li {
+      width: 45% !important;
+      /* over-ride all li styles */
+      margin: 0 0 20px; } }
   @media (max-width: 600px) {
     html footer img, body footer img {
       width: 108%; } }

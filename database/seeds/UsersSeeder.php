@@ -12,7 +12,8 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $ip = inet_pton('10.168.56.1');
+//        $ip = inet_pton('10.168.56.1');
+        $ip = '10.168.56.1';
 //        dd($ip);
 
 

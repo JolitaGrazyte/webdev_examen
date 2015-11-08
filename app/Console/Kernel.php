@@ -5,6 +5,8 @@ namespace App\Console;
 use App\Period;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Carbon\Carbon;
+
 
 class Kernel extends ConsoleKernel
 {
@@ -35,9 +37,11 @@ class Kernel extends ConsoleKernel
 
             foreach($pp as $p){
 
-                    return $period->find($p['id'])->end == Carbon::now();
+//                    return $period->find($p['id'])->end == Carbon::now();
+
+                return $period->find($p['id'])->end == Carbon::now()->toDateString();
                 }
 
-        })->at('00:50:00');
+        });
     }
 }

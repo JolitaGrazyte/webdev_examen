@@ -4,6 +4,8 @@
 
 @section('content')
 
+    <div class="content-wrap">
+
     <div class="col-md-5 my-form">
 
         @include('errors.errors')
@@ -33,9 +35,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        {{--$( "#datetimepicker" ).datetimepicker();--}}
-    </script>
-
+</div>
 @stop

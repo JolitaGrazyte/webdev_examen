@@ -55,6 +55,7 @@ class AuthController extends Controller implements AuthenticateUserListener
     }
 
     public function getRegister(){
+
         return view('register');
     }
 
@@ -98,6 +99,23 @@ class AuthController extends Controller implements AuthenticateUserListener
 
     }
 
+    //TODO: NAKIJKEN DEZE !!!!
+//    public function handleUserWasAuthenticated(Request $request, $throttles)
+//    {
+//        if ($throttles) {
+//            $this->clearLoginAttempts($request);
+//        }
+//
+//        if (method_exists($this, 'authenticated')) {
+//            return $this->authenticated($request, Auth::user());
+//        }
+
+
+//        return redirect()->route('getUpload', Auth::user()->id);
+//        return redirect()->intended($this->redirectPath());
+//    }
+
+
 
     public function ipExists($ip){
 
@@ -130,7 +148,6 @@ class AuthController extends Controller implements AuthenticateUserListener
      */
     public function userHasBeenRegistered($user) {
 
-//        return redirect($this->redirectPath());
         return redirect()->route('getUpload', $user->id);
     }
 }

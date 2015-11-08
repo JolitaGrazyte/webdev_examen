@@ -8,8 +8,6 @@ use Carbon\Carbon;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Votes;
-//use Illuminate\Support\Facades\DB;
-//use App\User;
 use Session;
 
 class GameController extends Controller
@@ -43,6 +41,7 @@ class GameController extends Controller
             'After every period the winners will published on this page.'
 
         ];
+
 
         $past_periods = $period->past()->get();
 

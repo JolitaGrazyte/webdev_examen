@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PeriodRequest;
 use App\Period;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -18,8 +19,10 @@ class PeriodsController extends Controller
     public function __construct( Period $period ){
 
         $this->period = $period;
+        $this->middleware('admin');
 
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,8 +30,18 @@ class PeriodsController extends Controller
      */
     public function index()
     {
-        return redirect()->to('admin');
+        $periods = Period::all();
+        $admin_email = $this->getEmail();
+        return view('admin.index', compact('admin_email', 'periods'))->withTitle('Admin');
     }
+
+    public function getEmail(){
+
+        $user   = User::where('role', 0)->first();
+        $email  = $user->email;
+        return $email;
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -76,7 +89,7 @@ class PeriodsController extends Controller
 
         $period = $this->period->find($id);
 
-        return view('admin.periods.edit', compact('period'))->withTitle('Edit period');
+        return view('admin.periods.edit', compact('period', 'start', 'end'))->withTitle('Edit period');
     }
 
     /**
@@ -121,10 +134,9 @@ class PeriodsController extends Controller
 
    private function addPeriod($request, $id = null){
 
-        $carbon = new Carbon();
         $period = $id == null ? $this->period : $this->period->find($id);
-        $period->start  = $carbon->createFromFormat('Y-m-d', $request->get('start'));
-        $period->end    = $carbon->createFromFormat('Y-m-d', $request->get('end'));
+        $period->start  = date('Y-m-d h:i:s', strtotime($request->get('start')));
+        $period->end    = date('Y-m-d h:i:s', strtotime($request->get('end')));
         $period->save();
     }
 }

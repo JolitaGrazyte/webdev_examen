@@ -54,16 +54,10 @@ class SendEmails extends Command
             }
         }
 
-//        dd($winners);
-
-//        $winners = Votes::winners($p);
-
         $data = [
             'winners' => $winners,
             'user' => $user
         ];
-
-//        Mail::send('mail-template', $data, function() { });
 
 
         Mail::send('emails.notification',  $data, function ($m) use ($user) {

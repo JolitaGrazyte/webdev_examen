@@ -16,7 +16,6 @@
 //});
 
 
-
 // Registration routes...
 get('register',             ['as' => 'register',        'uses' => 'Auth\AuthController@getRegister' ]);
 post('register',            ['as' => 'post-register',   'uses' => 'Auth\AuthController@postRegister' ]);
@@ -28,19 +27,16 @@ post('auth/login',      ['as' => 'postLogin',           'uses' => 'Auth\AuthCont
 get('auth/logout',      ['as' => 'getLogout',           'uses' => 'Auth\AuthController@getLogout']);
 
 // Admin routes...
-Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin'], function(){
 
     resource('periods',   'PeriodsController' );
 
 });
 get('admin/periods/{id}/delete',    ['as' => 'period-delete',       'uses' => 'PeriodsController@destroy']);
+get('admin',    ['as' => 'admin',       'uses' => 'PeriodsController@index']);
 
 
-get('admin',    ['as' => 'admin',       'uses' => 'AdminController@index']);
-get('sendmail', ['as' => 'sendEmail', 'uses' => 'AdminController@sendEmail']);
-
-
-// Other routes...
+// Images upload/handle routes...
 get('/', ['as'=>'home',     'uses' => 'GameController@getAll' ]);
 get('upload/{user_id}',     ['as'=>'getUpload',     'uses' => 'ImagesController@getUpload' ]);
 post('upload/{user_id}',    ['as'=>'postUpload',    'uses' => 'ImagesController@postUpload' ]);

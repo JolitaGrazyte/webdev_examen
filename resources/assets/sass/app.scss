@@ -13,35 +13,44 @@
 
   .content-wrap{
 
-     padding: 10rem 0;
-     min-height: 900px;
+    margin: 15rem 0;
+    padding: 10rem 0;
+    min-height: 900px;
 
 
 //== FORMS, CONTROLS ==//
 
-   .form-control{
-     border-radius: 0;
-     height: $input-h;
+   .panel{
 
-    }
+    margin-top: 2rem;
+   }
 
    .my-form{
-    position: relative;
-    z-index: 5;
-    top: 18rem;
+    //position: relative;
+    //z-index: 5;
+    margin-top: 5rem;
     margin-bottom: 15rem;
     left: 50%;
     min-height: 500px;
     padding-bottom: 2rem;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
-   }
+
+    .form-control{
+     border-radius: 0;
+     height: $input-h;
+
+    }
 
     .my-btn{
      background: #033067;
      color: #F7F7F9;
 
     }
+
+
+   }
+
 
     .my-social-btn{
       height: $input-h;
@@ -332,10 +341,49 @@
 
   }
 
+  @media (max-width: 800px) {
+
+   section#win{
+
+    .text {
+
+     width: 100%;
+     margin-right: 2rem;
+     float: left;
+
+    }
+   }
+
+   .my-form{
+
+    .form-control{
+     margin-left: auto;
+     margin-right: auto;
+     width: 90%;
+    }
+
+   }
+
+
+   ul.grid-nav li {
+    display: block;
+    margin: 0 0 5px;
+   }
+   ul.grid-nav li a {
+    display: block;
+   }
+   ul.rig {
+    margin-left: 0;
+   }
+   ul.rig li {
+    width: 45% !important; /* over-ride all li styles */
+    margin: 0 0 20px;
+   }
+  }
 
   @media (max-width: 600px) {
 
-    footer img{
+     footer img{
      width: 108%;
     }
 
@@ -405,6 +453,8 @@
   ul.rig.columns-4 li {
    width: 22.5%; /* this value + 2.5 should = 25% */
   }
+
+
 
   @media (max-width: 480px) {
    ul.grid-nav li {

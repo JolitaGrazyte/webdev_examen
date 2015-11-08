@@ -60,33 +60,36 @@
 
     <section id="images">
 
-        <hr>
+        @if(count($images))
+            <hr>
 
-        <h2>Current period images - <em> please vote!</em></h2>
+            <h2>Current period images - <em> please vote!</em></h2>
 
-        <ul class="rig columns-3">
+        @else
 
-        @if(isset($images))
+            <ul class="rig columns-3">
 
                 @each('images.single', $images, 'image', 'images.no-items')
 
-            @endif
+            </ul>
 
-        </ul>
 
-        <hr>
+        @endif
 
-        <h2>Past periods images</h2>
 
-        <ul class="rig columns-4">
+        @if(isset($pp_images))
 
-            @if(isset($pp_images))
+            <hr>
+
+            <h2>Past periods images</h2>
+
+            <ul class="rig columns-4">
 
                 @each('images.single-past', $pp_images, 'image', 'images.no-items')
 
-            @endif
+            </ul>
 
-        </ul>
+            @endif
 
     </section>
 
