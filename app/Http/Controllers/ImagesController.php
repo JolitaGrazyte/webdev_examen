@@ -67,6 +67,8 @@ class ImagesController extends Controller
                     $imgObj     = $this->image;
                     $img        = $img_resize->addImage($image, $imgObj, $name, $user_id, $ip);
 
+
+
                     Session::flash('message', "Your image has been  uploaded successfully.  We wish you loads of success!");
                     Session::flash('alert-class', 'alert-success');
 
@@ -74,7 +76,6 @@ class ImagesController extends Controller
 
 
                         $m->from('gogglesl@zealoptics.com', 'Zeal Optics')->to($user->email, $user->username)->subject('Ski Goggles Game Upload!');
-
 
                     });
 

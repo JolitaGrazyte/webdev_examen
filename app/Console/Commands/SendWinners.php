@@ -8,14 +8,14 @@ use Illuminate\Console\Command;
 use App\User;
 use Illuminate\Support\Facades\Mail;
 
-class SendEmails extends Command
+class SendWinners extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'emails:send';
+    protected $signature = 'emails:winners';
 
     /**
      * The console command description.
@@ -40,10 +40,8 @@ class SendEmails extends Command
      */
     public function handle()
     {
-
-        $user = User::where('role', 0)->first();
-
-        $past_periods = Period::past()->get();
+        $user           =   User::where('role', 0)->first();
+        $past_periods   =   Period::past()->get();
 
         if($past_periods){
 
@@ -53,6 +51,8 @@ class SendEmails extends Command
 
             }
         }
+
+        $this->makeExcelFile();
 
         $data = [
             'winners' => $winners,
@@ -65,7 +65,11 @@ class SendEmails extends Command
 
             $m->from('gogglesl@zealoptics.com', 'Zeal Optics')->to($user->email, $user->username)->subject('Ski Goggles Game Winners!');
 
+            $m->attach(storage_path('app').'/excel/exports/ParticipantsList.xls');
+
 
         });
     }
+
+
 }

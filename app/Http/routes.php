@@ -47,3 +47,4 @@ post('images',                  ['as'=>'postVote',     'uses' => 'GameController
 
 
 
+get('excel', 'PeriodsController@makeExcelFile');

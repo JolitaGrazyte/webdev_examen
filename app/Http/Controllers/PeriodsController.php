@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PeriodRequest;
 use App\Period;
 use App\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\QueryException;
+
+
 
 
 class PeriodsController extends Controller
@@ -139,4 +140,7 @@ class PeriodsController extends Controller
         $period->end    = date('Y-m-d h:i:s', strtotime($request->get('end')));
         $period->save();
     }
+
+
+
 }

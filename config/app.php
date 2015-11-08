@@ -148,6 +148,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class
 
     ],
 
@@ -202,6 +203,7 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'ImgIntervention'   => Intervention\Image\ImageServiceProvider::class,
+        'Excel'     => Maatwebsite\Excel\Facades\Excel::class
 
     ],
 

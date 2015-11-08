@@ -17,7 +17,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\Inspire::class,
-        \App\Console\Commands\SendEmails::class,
+        \App\Console\Commands\SendWinners::class,
+        \App\Console\Commands\SendListParticipants::class,
     ];
 
     /**
@@ -31,17 +32,17 @@ class Kernel extends ConsoleKernel
         $schedule->command('inspire')
                  ->hourly();
 
-        $schedule->command('emails:send')->when( function ( Period $period ) {
+        $schedule->command('emails:winners')->when( function ( Period $period ) {
 
             $pp = $period->past()->get();
 
             foreach($pp as $p){
 
-//                    return $period->find($p['id'])->end == Carbon::now();
-
                 return $period->find($p['id'])->end == Carbon::now()->toDateString();
                 }
 
         });
+
+        $schedule->command('emails:participants');
     }
 }
