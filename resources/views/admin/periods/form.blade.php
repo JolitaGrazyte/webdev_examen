@@ -19,7 +19,7 @@
 
     <div class="col-md-8">
 
-        {!! Form::text('end', isset($period)? $period->end :null, ['class' => 'datetimepicker form-control', 'placeholder' => isset($period)? $period->start:'period end']) !!}
+        {!! Form::text('end', isset($period)? $period->end :null, ['class' => 'datetimepicker form-control', 'placeholder' => isset($period)? $period->end:'period end']) !!}
 
     </div>
 
