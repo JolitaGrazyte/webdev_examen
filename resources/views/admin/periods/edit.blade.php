@@ -16,6 +16,18 @@
 
                     <h1>Edit period</h1>
 
+                    {{--{!! Form::model($period, ['route' =>  ['admin.periods.update', $period->id]]) !!}--}}
+                    {{--<div>--}}
+                        {{--{!! Form::label('start', 'Start') !!}--}}
+                        {{--{!! Form::text('start') !!}--}}
+                    {{--</div>--}}
+
+                    {{--<div>--}}
+                        {{--{!! Form::label('end', 'End') !!}--}}
+                        {{--{!! Form::textarea('end') !!}--}}
+                    {{--</div>--}}
+                    {{--{!! Form::close() !!}--}}
+
                     {!!Form::open(['route' =>  ['admin.periods.update', $period->id], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PATCH'])  !!}
 
                     @include('admin.periods.form')

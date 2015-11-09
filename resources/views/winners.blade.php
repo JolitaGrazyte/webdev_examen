@@ -1,4 +1,4 @@
-@if(isset($winners))
+@if(count($winners))
 
     @foreach($winners as $key => $p_winners)
 

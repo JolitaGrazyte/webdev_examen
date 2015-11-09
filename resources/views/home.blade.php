@@ -61,11 +61,10 @@
     <section id="images">
 
         @if(count($images))
+
             <hr>
 
             <h2>Current period images - <em> please vote!</em></h2>
-
-        @else
 
             <ul class="rig columns-3">
 
@@ -77,7 +76,7 @@
         @endif
 
 
-        @if(isset($pp_images))
+        @if(count($pp_images))
 
             <hr>
 

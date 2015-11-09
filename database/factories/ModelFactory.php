@@ -21,7 +21,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 //    dd($faker->unique()->ipv4);
 
-    $date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', '2015-11-'.mt_rand(1, 5).' '.mt_rand(0, 24).':00:00');
+    $date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', '2015-11-'.rand(1, 9).' '.rand(0, 12).':00:00');
 
     $user =  [
         'username'      => $faker->name,
