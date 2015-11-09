@@ -52,8 +52,6 @@ class SendWinners extends Command
             }
         }
 
-        $this->makeExcelFile();
-
         $data = [
             'winners' => $winners,
             'user' => $user
@@ -64,8 +62,6 @@ class SendWinners extends Command
 
 
             $m->from('gogglesl@zealoptics.com', 'Zeal Optics')->to($user->email, $user->username)->subject('Ski Goggles Game Winners!');
-
-            $m->attach(storage_path('app').'/excel/exports/ParticipantsList.xls');
 
 
         });
