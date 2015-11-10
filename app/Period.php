@@ -19,7 +19,7 @@ class Period extends Model
 
     public function scopeActive($query){
 
-        $now = Carbon::now();
+        $now = Carbon::now('Europe/Brussels');
 
         return $query->where('start', '<', $now)->where('end', '>', $now);
 
@@ -28,7 +28,7 @@ class Period extends Model
 
     public function scopePast($query){
 
-        $now = Carbon::now();
+        $now = Carbon::now('Europe/Brussels');
 
         return $query->where('end', '<', $now);
     }

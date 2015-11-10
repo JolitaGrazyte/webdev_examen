@@ -32,21 +32,18 @@ class Kernel extends ConsoleKernel
         $schedule->command('inspire')
                  ->hourly();
 
-        $schedule->command('emails:winners')->when( function ( Period $period ) {
 
-            $pp = $period->past()->get();
+            $pp = Period::past()->get();
 
             foreach($pp as $p){
 
-//                ToDo: FORMAT on end is not suitable !!!
+                $schedule->command('emails:winners')->when( function () use ($p) {
+                return substr($p->end, 0, 13) == Carbon::now('Europe/Brussels')->format('Y-m-d H');
 
-//                dd(Carbon::now()->format('Y-m-d H'));
-//                dd(substr($period->find($p['id'])->end, 0, 13));
-                return substr($period->find($p['id'])->end, 0, 13) == Carbon::now()->format('Y-m-d H');
+
+                });
 
             }
-
-        });
 
         $schedule->command('emails:participants');
     }
