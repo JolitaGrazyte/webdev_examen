@@ -68,6 +68,8 @@ class SendListParticipants extends Command
 
     private function makeExcelFile()
     {
+        $user_list = [];
+
         $date = $this->date;
 
         $participants = User::where('role', '!=', 0)->where('created_at', 'LIKE', $date.'%' )->get();
