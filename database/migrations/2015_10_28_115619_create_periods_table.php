@@ -15,8 +15,8 @@ class CreatePeriodsTable extends Migration
         Schema::create('periods', function( Blueprint $table ){
 
             $table->increments('id');
-            $table->date('start');
-            $table->date('end');
+            $table->datetime('start');
+            $table->datetime('end');
             $table->timestamps();
 
         });
