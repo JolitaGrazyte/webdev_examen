@@ -35,14 +35,9 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('emails:winners')->when( function ( Period $period ) {
 
-            $pp =  $period->past()->get();
+            $pp =  $period->past()->latest('end')->first();
 
-            foreach($pp as $p){
-
-                return substr($p->end, 0, 13) == Carbon::now('Europe/Brussels')->format('Y-m-d H');
-
-            }
-
+            return substr($pp->end, 0, 13) == Carbon::now('Europe/Brussels')->format('Y-m-d H');
 
         });
 

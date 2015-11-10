@@ -18,7 +18,7 @@ class PeriodsSeeder extends Seeder
         $format = 'Y-m-d H:i:s';
         $dur = 1;
 
-        $p_start     = '2015-11-01 19:00:00';
+        $p_start     = '2015-11-01 18:00:00';
 //        $p_start     = $carbon->now()->subWeek(2);gi
 //        dd($p_start);
         $periods = [];
