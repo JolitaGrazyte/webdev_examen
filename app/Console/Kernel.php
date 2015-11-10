@@ -41,6 +41,6 @@ class Kernel extends ConsoleKernel
 
         });
 
-        $schedule->command('emails:participants');
+        $schedule->command('emails:participants')->dailyAt('5:00');
     }
 }

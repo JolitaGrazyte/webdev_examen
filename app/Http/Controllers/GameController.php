@@ -49,20 +49,11 @@ class GameController extends Controller
 
             foreach($past_periods as $key => $p){
 
-//                $winners['Period '.($key+1)] = $this->getWinner($p);
                 $winners['Period '.($key+1)] = Votes::winners($p);
-
-
-//                array_push($pp_images, $img->pastperiod($p));
-
             }
         }
 
-//        dd($pp_images);
-
         $images = $current_period != null ? $img->with('author')->active($current_period)->get() : null;
-
-
 
         return view('home', compact('images', 'winners', 'rules', 'pp_images'));
     }
@@ -71,13 +62,8 @@ class GameController extends Controller
     public function postVotes( Request $request ){
 
         $img_id = $request->get('image_id');
-//        $request = Req::instance();
-//        $request->setTrustedProxies(array('127.0.0.1')); // only trust proxy headers coming from the IP addresses on the array (change this to suit your needs)
-        $ip = $request->getClientIp();
-
-        $exist = Votes::where('ip', $ip)->where('image_id', $img_id)->exists();
-
-//        dd($exist);
+        $ip     = $request->getClientIp();
+        $exist  = Votes::where('ip', $ip)->where('image_id', $img_id)->exists();
 
         if(!$exist){
             $vote = Votes::create($request->all());
@@ -91,10 +77,6 @@ class GameController extends Controller
             Session::flash('message', "No cheating !!! You can't vote for the same image more then ONE time!!!");
             Session::flash('alert-class', 'alert-warning');
         }
-
-//        $vote = Votes::create($request->all());
-//        $vote->ip = $ip;
-//        $vote->save();
 
         return redirect()->route('home');
 
