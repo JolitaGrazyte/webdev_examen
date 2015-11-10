@@ -38,7 +38,7 @@ class Kernel extends ConsoleKernel
 
             foreach($pp as $p){
 
-                return $period->find($p['id'])->end == Carbon::now()->toDateString();
+                return $period->find($p['id'])->end->format('Y-m-d H:m') == Carbon::now()->format('Y-m-d H:m');
 
             }
 

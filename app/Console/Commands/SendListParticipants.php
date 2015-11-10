@@ -72,17 +72,29 @@ class SendListParticipants extends Command
 
         $date = $this->date;
 
-        $participants = User::where('role', '!=', 0)->where('created_at', 'LIKE', $date.'%' )->get();
+        $participants = User::where('role', '!=', 0)->where('created_at', 'LIKE', $date.'%' )->get(); // participants of today
+//        $participants = User::where('role', '!=', 0)->get(); // all participants
 
 //        dd($participants);
 
-        foreach($participants as $participant){
+        if(count($participants)){
 
-            $user_list[] = [
-                'username'=>$participant->username,
-                'email'=>$participant->email
-            ];
+            foreach($participants as $participant){
+
+                $user_list[] = [
+                    'username'=>$participant->username,
+                    'email'=>$participant->email
+                ];
+            }
         }
+        else {
+            $user_list[] = [
+                'username'=>'',
+                'email'=>''
+            ];
+
+        }
+
 
         Excel::create('ParticipantsList_'.$date, function($excel)  use ($user_list){
 
