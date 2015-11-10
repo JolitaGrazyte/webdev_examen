@@ -5854,7 +5854,7 @@ html, body {
   html section, body section {
     position: relative;
     width: 100%;
-    min-height: 50rem;
+    min-height: 60rem;
     top: 20rem;
     left: 0;
     right: 0;
@@ -5871,9 +5871,8 @@ html, body {
       color: #ff8a00;
       text-decoration: underline; }
   html section#rules, body section#rules {
-    padding-top: 5rem;
-    margin: 8rem 0;
-    padding-bottom: 15rem; }
+    padding: 15rem 0 15rem 0;
+    margin: 8rem 0; }
     html section#rules div.rules, html section#rules div.winners, body section#rules div.rules, body section#rules div.winners {
       float: left; }
     html section#rules a, html section#rules a:link, html section#rules a:visited, body section#rules a, body section#rules a:link, body section#rules a:visited {
@@ -5889,7 +5888,7 @@ html, body {
     html section#rules .winners, body section#rules .winners {
       width: 30%; }
   html section#images, body section#images {
-    padding-top: 5rem;
+    padding-top: 15rem;
     margin: 8rem 0;
     min-height: 100rem;
     z-index: 2; }

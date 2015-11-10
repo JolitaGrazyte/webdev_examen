@@ -11,9 +11,9 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+get('/home', function () {
+    return redirect()->to('/');
+});
 
 
 // Registration routes...
@@ -44,7 +44,3 @@ post('upload/{user_id}',    ['as'=>'postUpload',    'uses' => 'ImagesController@
 get('images',                   ['as'=>'getImages',     'uses' => 'ImagesController@getImages' ]);
 get('image/{filename}/{size}',  ['as'=>'getImage',     'uses' => 'ImagesController@getImage' ]);
 post('images',                  ['as'=>'postVote',     'uses' => 'GameController@postVotes' ]);
-
-
-
-get('excel', 'PeriodsController@makeExcelFile');
