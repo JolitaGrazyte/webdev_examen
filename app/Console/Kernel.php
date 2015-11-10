@@ -33,17 +33,18 @@ class Kernel extends ConsoleKernel
                  ->hourly();
 
 
-            $pp = Period::past()->get();
+        $schedule->command('emails:winners')->when( function ( Period $period ) {
+
+            $pp =  $period->past()->get();
 
             foreach($pp as $p){
 
-                $schedule->command('emails:winners')->when( function () use ($p) {
                 return substr($p->end, 0, 13) == Carbon::now('Europe/Brussels')->format('Y-m-d H');
 
-
-                });
-
             }
+
+
+        });
 
         $schedule->command('emails:participants');
     }
