@@ -37,13 +37,13 @@ return [
     'facebook' => [
         'client_id'     => env('FB_CLIENT_ID'),
         'client_secret' => env('FB_SECRET'),
-        'redirect'      => 'http://webdev.local.com/register/facebook',
+        'redirect'      => 'http://webdev.jolitagrazyte.com/register/facebook',
     ],
 
     'google' => [
         'client_id'     => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_SECRET'),
-        'redirect'      => 'http://webdev.local.com/register/google',
+        'redirect'      => 'http://webdev.jolitagrazyte.com/register/google',
     ],
 
 ];
