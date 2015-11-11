@@ -7,7 +7,7 @@
 
         @if(count($p_winners))
 
-            <h3> {{ ucfirst($key) }} </h3>
+            <h2><em> {{ ucfirst($key) }} </em></h2>
 
                 @foreach($p_winners as $winner )
 

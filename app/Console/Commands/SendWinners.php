@@ -7,6 +7,7 @@ use App\Votes;
 use Illuminate\Console\Command;
 use App\User;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 class SendWinners extends Command
 {
@@ -41,31 +42,30 @@ class SendWinners extends Command
     public function handle()
     {
         $user           =   User::where('role', 0)->first();
-        $past_periods   =   Period::past()->get();
+        $past_period    =   Period::past()->latest('end')->first();
 
-        if($past_periods){
+        $isTrue = substr($past_period->end, 0, 13) == Carbon::now('Europe/Brussels')->format('Y-m-d H');
 
-            foreach($past_periods as $key => $p){
+        if($isTrue){
 
-                $winners['Period '.($key+1)] = Votes::winners($p);
+            $winners['Period '.$past_period->id.' ('.$past_period->start.' - '.$past_period->end.')' ] = Votes::winners($past_period);
 
-            }
+            $data = [
+                'winners' => $winners,
+                'user' => $user
+            ];
+
+
+            Mail::send('emails.notification',  $data, function ($m) use ($user) {
+
+
+                $m->from('gogglesl@zealoptics.com', 'Zeal Optics')->to($user->email, $user->username)->subject('Ski Goggles Game Winners!');
+
+
+            });
         }
 
-        $data = [
-            'winners' => $winners,
-            'user' => $user
-        ];
 
-
-        Mail::send('emails.notification',  $data, function ($m) use ($user) {
-
-
-            $m->from('gogglesl@zealoptics.com', 'Zeal Optics')->to($user->email, $user->username)->subject('Ski Goggles Game Winners!');
-
-
-        });
     }
-
 
 }
