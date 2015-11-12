@@ -11,9 +11,15 @@
 |
 */
 
-get('/home', function () {
-    return redirect()->to('/');
-});
+//get('/home', function () {
+//    return redirect()->to('/');
+//});
+
+
+// Password reset
+Route::controllers([
+    'password' => 'Auth\PasswordController',
+]);
 
 
 // Registration routes...
@@ -26,14 +32,15 @@ get('auth/login',       ['as' => 'getLogin',            'uses' => 'Auth\AuthCont
 post('auth/login',      ['as' => 'postLogin',           'uses' => 'Auth\AuthController@postLogin']);
 get('auth/logout',      ['as' => 'getLogout',           'uses' => 'Auth\AuthController@getLogout']);
 
+
 // Admin routes...
 Route::group(['prefix' => 'admin'], function(){
 
     resource('periods',   'PeriodsController' );
+    get('periods/{id}/delete',    ['as' => 'period-delete',       'uses' => 'PeriodsController@destroy']);
+    get('',                       ['as' => 'admin',       'uses' => 'PeriodsController@index']);
 
 });
-get('admin/periods/{id}/delete',    ['as' => 'period-delete',       'uses' => 'PeriodsController@destroy']);
-get('admin',    ['as' => 'admin',       'uses' => 'PeriodsController@index']);
 
 
 // Images upload/handle routes...

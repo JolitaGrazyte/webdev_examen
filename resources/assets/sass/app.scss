@@ -4,12 +4,12 @@
 
 
  html, body{
+
   width: 100%;
   height:100%;
   padding:0;
   margin:0;
   overflow-x:hidden;
-
 
   .content-wrap{
 
@@ -21,8 +21,7 @@
 //== FORMS, CONTROLS ==//
 
    .panel{
-
-    margin-top: 2rem;
+     margin-top: 2rem;
    }
 
    .my-form{
@@ -48,13 +47,9 @@
 
     }
 
-
-   }
-
-
     .my-social-btn{
-      height: $input-h;
-      //width: $input-w;
+     height: $input-h;
+     //width: $input-w;
     }
 
     .my-social-btns{
@@ -73,6 +68,8 @@
 
     }
 
+   }
+
   }
 
   .centering {
@@ -82,27 +79,26 @@
 
   //== HEADER ==//
   header{
-
+    position: fixed;
     height: 20rem;
     width: 100%;
-    position: fixed;
     left: 0;
     z-index: 10;
     background-color: #FFF;
 
 
-
     #brand-center{
-     //border: seagreen 1px dotted;
+
      width: $logo_size;
      height: $logo_size;
-     background-size: 100%;
-     background-image: url('../files/img/zeal-logo.png');
-     background-repeat: no-repeat;
+     background: center/100% url('../files/img/zeal-logo.png') no-repeat;
+     //background-repeat: no-repeat;
      //position: absolute;
      //left: 50%;
      //transform: translateX(-50%);
      //-webkit-transform:  translateX(-50%);
+     //border: seagreen 1px dotted;
+     //background-size: 100%;
     }
 
     .brand-center{
@@ -114,7 +110,7 @@
 
     nav {
 
-     height: 6rem;
+     height: 7rem;
 
      ul {
       margin: 0;
@@ -127,7 +123,6 @@
       width: 100%;
       text-align: center;
       li {
-
        float: none;
        display: inline-block;
       }
@@ -152,7 +147,7 @@
     }
 
     h1.nav-heading{
-     display: inline-block;
+     //display: inline-block;
      border-top: 1px solid #E9E9E9;
      font-family: Lato;
      font-size: 4rem;
@@ -172,12 +167,12 @@
     top: 20rem;
     left: 0;
     right: 0;
-    padding: 2rem 0;
+    padding: 15rem 2rem;
+    //margin: 8rem 0;
     //border: 2px #d73131 dotted;
-    //opacity: 0.2;
 
     h1, h2{
-     margin-left: 2rem;
+     //margin-left: 2rem;
     }
 
     a, a:link, a:visited {
@@ -198,8 +193,8 @@
 
    section#rules{
 
-    padding: 15rem 0 15rem 0;
-    margin: 8rem 0;
+    //padding: 0 0 15rem 0;
+    //margin: 8rem 0;
 
     div.rules, div.winners{
      float: left;
@@ -229,18 +224,18 @@
    }
 
   section#images{
-   padding-top:  15rem;
-   margin: 8rem 0;
+   //padding-top:  15rem;
+
    min-height: 100rem;
    //background-color: lightpink;
-   z-index: 2;
+   //z-index: 2;
    a, a:link, a:visited{
     font-size: 3rem;
    }
 
  }
   section#win{
-   min-height: 50rem;
+   min-height: 60rem;
    //background-color: lightskyblue;
    //z-index: -1;
 
@@ -249,7 +244,6 @@
     width: 50%;
     margin-right: 2rem;
     float: left;
-
 
       p{
         padding-left: 2rem;
@@ -274,23 +268,22 @@
 
  section#win-goggles{
    position: relative;
-   height:  68rem;
-   margin-bottom: 15rem;
+   height: 83rem;
+   top: 0;
    //background-color: #00d6b2;
 
-   .bckg{
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+
+  .goggles{
     height: 100%;
     width: 100%;
-    background-size: 100%;
-    background-image: url("../files/img/zeal-goggles.png");
+    background: no-repeat center/100% url("../files/img/zeal-goggles.png") fixed;
+
    }
 
 
    .win-call-bar {
     position: relative;
-    top: -5rem;
+    top: 10rem;
     display: table;
     table-layout: fixed;
     width: 120%;
@@ -326,92 +319,29 @@
   }
 
 
-//== Footer ==//
- footer{
-  position: fixed;
-  left: -4%;
-  bottom: -90rem;
-
-  }
-
-  footer img{
-   width: 108%;
-   left: -4%;
-
-  }
-
-  @media (max-width: 800px) {
-
-   section#win{
-
-    .text {
-
-     width: 100%;
-     margin-right: 2rem;
-     float: left;
-
-    }
-   }
-
-   .my-form{
-
-    .form-control{
-     margin-left: auto;
-     margin-right: auto;
-     width: 90%;
-    }
-
-   }
-
-
-   ul.grid-nav li {
-    display: block;
-    margin: 0 0 5px;
-   }
-   ul.grid-nav li a {
-    display: block;
-   }
-   ul.rig {
-    margin-left: 0;
-   }
-   ul.rig li {
-    width: 45% !important; /* over-ride all li styles */
-    margin: 0 0 20px;
-   }
-  }
-
-  @media (max-width: 600px) {
-
-     footer img{
-     width: 108%;
-    }
-
-  }
-
-
   //== IMAGES ==//
 
-
   ul.rig {
-    list-style: none;
-    margin-left: -5%;
-    h1, h2, a, a:link, a:visited{
-     margin-left: 4rem;
-    }
+   list-style: none;
+   margin-left: -5%;
 
-    .vote-btn{
+   h1, h2, a, a:link, a:visited{
+    margin-left: 4rem;
+   }
 
-     font-style: oblique;
-     font-size: 1.5rem;
-     border: none;
-     background: #dd0000;
-     color: #FFFFDF;
-     height: 4rem;
-     width: 100%;
-     z-index: 20;
-     cursor: pointer;
+   .vote-btn{
 
-    }
+    font-style: oblique;
+    font-size: 1.5rem;
+    border: none;
+    background: #dd0000;
+    color: #FFFFDF;
+    height: 4rem;
+    width: 100%;
+    z-index: 20;
+    cursor: pointer;
+   }
+
   }
   ul.rig li {
    display: inline-block;
@@ -455,7 +385,94 @@
 
 
 
+
+  //== Footer ==//
+  footer{
+   //border: 15px seagreen dotted;
+   //background-color: palegoldenrod;
+   position: fixed;
+   z-index: 9;
+   left: -4%;
+   bottom: -90rem;
+
+   img{
+    width: 108%;
+    left: -4%;
+
+   }
+
+  }
+
+  //== end of Footer ==//
+
+
+
+
+  //== @MEDIA queries ==//
+
+  @media (max-width: 800px) {
+
+   section#win{
+
+    .text {
+
+     width: 100%;
+     margin-right: 2rem;
+     float: left;
+
+    }
+
+   }
+
+   .my-form{
+
+    .form-control{
+     margin-left: auto;
+     margin-right: auto;
+     width: 90%;
+    }
+
+   }
+
+
+   ul.grid-nav li {
+    display: block;
+    margin: 0 0 5px;
+   }
+   ul.grid-nav li a {
+    display: block;
+   }
+   ul.rig {
+    margin-left: 0;
+   }
+   ul.rig li {
+    width: 45% !important; /* over-ride all li styles */
+    margin: 0 0 20px;
+   }
+  }
+
+  @media (max-width: 600px) {
+
+     footer img{
+     width: 108%;
+    }
+
+  }
+
+
   @media (max-width: 480px) {
+
+   [class^="col-"]{
+
+    //margin-left: -10px;
+   }
+
+   header h1.nav-heading{
+    text-align: center;
+     width: 90%;
+     font-size: 1.7rem;
+    }
+
    ul.grid-nav li {
     display: block;
     margin: 0 0 5px;
@@ -471,6 +488,9 @@
     margin: 0 0 20px;
    }
   }
+
+  //== end of @MEDIA queries ==//
+
 
   //== Messages ==//
 
@@ -501,6 +521,7 @@
    background-color: #feb818;
   }
 
+  // end of messages
 
 
 

@@ -2,10 +2,8 @@
 
 namespace App\Console;
 
-use App\Period;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Carbon\Carbon;
 
 
 class Kernel extends ConsoleKernel
@@ -17,8 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\Inspire::class,
-        \App\Console\Commands\SendWinners::class,
-        \App\Console\Commands\SendListParticipants::class,
+//        \App\Console\Commands\SendWinners::class,
+//        \App\Console\Commands\SendListParticipants::class,
     ];
 
     /**
@@ -33,13 +31,13 @@ class Kernel extends ConsoleKernel
                  ->hourly();
 
 
-        $schedule->command('emails:winners')->when( function ( Period $period ) {
-
-            $pp =  $period->past()->latest('end')->first();
-
-            return substr($pp->end, 0, 13) == Carbon::now('Europe/Brussels')->format('Y-m-d H');
-
-        });
+//        $schedule->command('emails:winners')->when( function ( Period $period ) {
+//
+//            $pp =  $period->past()->latest('end')->first();
+//
+//            return substr($pp->end, 0, 13) == Carbon::now('Europe/Brussels')->format('Y-m-d H');
+//
+//        });
 
         #$schedule->command('emails:participants')->dailyAt('5:00');
     }

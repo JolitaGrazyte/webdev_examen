@@ -1,112 +1,105 @@
 @extends('layouts.master')
 
-@section('title', 'Home')
+@section('title', 'Win Goggles')
 
 @section('content')
 
-    <section id="win-goggles">
+      <section id="win-goggles">
 
-        <div class="bckg"
+          <div class="goggles"
 
-             data-center="background-position: 50% 300px;"
-             data-top-bottom="background-position: 50% 70px;"
-             data-anchor-target="#win-goggles" >
+               data-0="background-position: 50% 50%;"
+               data-600="background-position: 50% 0" ></div>
 
-        </div>
+          <div class="win-call-bar">
 
-        <div class="win-call-bar">
+              <div class="win-call-bar-content"
+                   data-0="opacity: 1"
+                   data-800="opacity: 0">
 
-            <div class="win-call-bar-content"
+              <h2>PLAY & WIN amazing Zeal Optics Tehnology</h2>
+              <a href="#rules">find out more</a>
 
-                 data-0="opacity: 1"
-                 data-200="opacity: 0"
-                 data-anchor-target=".brand-center"
-                 >
+              </div>
 
-                <h2>PLAY & WIN amazing Zeal Optics Tehnology</h2>
-                <a href="#rules">find out more</a>
-            </div>
+          </div>
 
-        </div>
+      </section>
 
-    </section>
+      <section id="rules">
 
-    <section id="rules">
+          <hr>
 
-        <hr>
+          <h1>Game rules</h1>
 
-        <h1>Game rules</h1>
+          <div class="rules">
 
-        <div class="rules">
+              @foreach($rules as $rule)
 
-                    @foreach($rules as $rule)
+                  <p> {{ $rule }} </p>
 
-                        <p> {{ $rule }} </p>
+              @endforeach
 
-                    @endforeach
-
-                        <div><a href="{{ route('register') }}">Register now  >></a></div>
-                        <div><a href="{{ route('home') }}#win">Check the amazing prizes you can win ! </a></div>
-            </div>
+              <div><a href="{{ route('register') }}">Register now  >></a></div>
+              <div><a href="{{ route('home') }}#win">Check the amazing prizes you can win ! </a></div>
+          </div>
 
 
-        <div class="winners">
+          <div class="winners">
 
-                @include('winners')
+              @include('winners')
 
-        </div>
+          </div>
 
-    </section>
+      </section>
 
-    <section id="images">
+      <section id="images">
 
-        <hr>
+          <hr>
 
-        @if(count($images))
+          @if(count($images))
 
-            <h2>Current period images - <em> please vote!</em></h2>
+              <h2>Current period images - <em> please vote!</em></h2>
 
-        @endif
+          @endif
 
-            <ul class="rig columns-3">
+          <ul class="rig columns-3">
 
-                @each('images.single', $images, 'image', 'images.no-items')
+              @each('images.single', $images, 'image', 'images.no-items')
 
-            </ul>
-
-
+          </ul>
 
 
+          @if(count($pp_images))
 
-        @if(count($pp_images))
+              <hr>
 
-            <hr>
+              <h2>Past periods images</h2>
 
-            <h2>Past periods images</h2>
+              <ul class="rig columns-4">
 
-            <ul class="rig columns-4">
+                  @each('images.single-past', $pp_images, 'image', 'images.no-items')
 
-                @each('images.single-past', $pp_images, 'image', 'images.no-items')
+              </ul>
 
-            </ul>
+          @endif
 
-            @endif
+      </section>
 
-    </section>
+      <section id="win">
 
-    <section id="win">
+          <hr>
+          @include('goggles-info')
 
-        <hr>
-        @include('goggles-info')
-
-    </section>
+      </section>
 
 @stop
 
 @section('footer')
 
-    <footer data-0="bottom: -95rem;" data-3900="bottom: -95rem;" data-10000="bottom:0">
+    <footer data-0="bottom: -95rem;" data-3900="bottom: -95rem;" data-7000="bottom:0">
         @include('layouts.footer')
     </footer>
 
 @stop
+

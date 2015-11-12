@@ -27,9 +27,9 @@
     @include('layouts.nav')
 </header>
 
+<div id="skrollr-body">
 
 <div class="container-fluid">
-
 
     @yield('content')
 
@@ -37,8 +37,16 @@
 
     <script>
 
+        window.onload = function() {
+            skrollr.init({
+                forceHeight: false
+            });
+        };
+
         $('div.alert').not('.alert-important').delay(4000).slideUp(400);
     </script>
+
+</div>
 </div>
 </body>
 </html>

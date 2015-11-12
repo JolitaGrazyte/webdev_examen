@@ -6,7 +6,7 @@
 
 <div class="content-wrap">
 
-    {{--@include('layouts.message')--}}
+    @include('layouts.message')
 
     <div class="col-md-5 my-form">
 
@@ -14,31 +14,31 @@
 
         <div class="row">
 
-            {!!Form::open(['route' =>  ['post-register'], 'class' => 'form-horizontal', 'role' => 'form'])  !!}
+            {{--{!!Form::open(['route' =>  ['changeEmail'], 'class' => 'form-horizontal', 'role' => 'form'])  !!}--}}
 
-            <div class="form-group">
+            {{--<div class="form-group">--}}
 
-                {!! Form::label('email', 'Notifications to email:', ['class' => 'col-md-3 control-label']) !!}
+                {{--{!! Form::label('email', 'Notifications to email:', ['class' => 'col-md-3 control-label']) !!}--}}
 
-                <div class="col-md-8">
+                {{--<div class="col-md-8">--}}
 
-                    {!! Form::email('email', $admin_email, ['class' => 'form-control', 'placeholder' => 'email']) !!}
+                    {{--{!! Form::email('email', $admin_email, ['class' => 'form-control', 'placeholder' => 'email']) !!}--}}
 
-                </div>
+                {{--</div>--}}
 
-            </div>
+            {{--</div>--}}
 
-            <div class="form-group">
+            {{--<div class="form-group">--}}
 
-                <div class="col-md-8 col-md-offset-3">
+                {{--<div class="col-md-8 col-md-offset-3">--}}
 
-                    {!! Form::submit('Submit', ['class' => 'my-btn form-control']) !!}
+                    {{--{!! Form::submit('Submit', ['class' => 'my-btn form-control']) !!}--}}
 
-                </div>
+                {{--</div>--}}
 
-            </div>
+            {{--</div>--}}
 
-            {!! Form::close() !!}
+            {{--{!! Form::close() !!}--}}
 
         </div>
 

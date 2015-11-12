@@ -29,6 +29,7 @@ class AuthController extends Controller implements AuthenticateUserListener
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
     protected $redirectTo = '/admin';
+    protected $username = 'username';
 
     /**
      * Create a new authentication controller instance.
@@ -50,14 +51,16 @@ class AuthController extends Controller implements AuthenticateUserListener
 //          'password'  => bcrypt($request->get('password')),
             'role'      => 1, // not admin
             'ip'        => $request->getClientIp()
-//           'ip'        => inet_pton($request->getClientIp())
+//          'ip'        => inet_pton($request->getClientIp())
         ]);
     }
+
 
     public function getRegister(){
 
         return view('register');
     }
+
 
     public function postRegister( RegisterRequest $request )
     {
@@ -67,12 +70,7 @@ class AuthController extends Controller implements AuthenticateUserListener
 
         $user_w_ip_exists = $this->ipExists($ipCode);
 
-//      dd($user_w_ip_exists);
-
         if($user_w_ip_exists){
-
-
-//          dd($user_w_ip_exists->delete());
 
             $user_w_ip_exists->delete();
 
@@ -92,37 +90,13 @@ class AuthController extends Controller implements AuthenticateUserListener
 
         }
 
-//
-//        Session::flash('message', "You've been successfully registered.");
-//        Session::flash('alert-class', 'alert-success');
-
-
     }
-
-    //TODO: NAKIJKEN DEZE !!!!
-//    public function handleUserWasAuthenticated(Request $request, $throttles)
-//    {
-//        if ($throttles) {
-//            $this->clearLoginAttempts($request);
-//        }
-//
-//        if (method_exists($this, 'authenticated')) {
-//            return $this->authenticated($request, Auth::user());
-//        }
-
-
-//        return redirect()->route('getUpload', Auth::user()->id);
-//        return redirect()->intended($this->redirectPath());
-//    }
-
 
 
     public function ipExists($ip){
 
 //        $ip = inet_pton('100.100.100.100'); // checking
-
         $user = User::withTrashed()->where('ip', $ip)->first();
-//        dd($user);
 
         return $user;
     }

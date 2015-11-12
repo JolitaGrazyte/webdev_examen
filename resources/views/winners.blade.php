@@ -19,7 +19,6 @@
 
                 @endforeach
 
-
         @endif
 
     @endforeach

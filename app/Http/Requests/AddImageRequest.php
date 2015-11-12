@@ -26,7 +26,7 @@ class AddImageRequest extends Request
         return [
 
             'name'   => 'required',
-            'image'  => 'max:2000|image', // SIZE LIMIT !!!!
+            'image'  => 'max:1000|image', // SIZE LIMIT !!!!
         ];
     }
 }

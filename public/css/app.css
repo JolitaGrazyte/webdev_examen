@@ -5788,40 +5788,38 @@ html, body {
       html .content-wrap .my-form .my-btn, body .content-wrap .my-form .my-btn {
         background: #033067;
         color: #F7F7F9; }
-    html .content-wrap .my-social-btn, html .content-wrap .my-btn-fb, html .content-wrap .my-btn-gplus, body .content-wrap .my-social-btn, body .content-wrap .my-btn-fb, body .content-wrap .my-btn-gplus {
-      height: 4.7rem; }
-    html .content-wrap .my-social-btns, body .content-wrap .my-social-btns {
-      text-align: center; }
-    html .content-wrap .my-btn-fb, body .content-wrap .my-btn-fb {
-      color: #F7F7F9;
-      background: #044fc4; }
-    html .content-wrap .my-btn-gplus, body .content-wrap .my-btn-gplus {
-      color: #F7F7F9;
-      background: #b70800; }
+      html .content-wrap .my-form .my-social-btn, html .content-wrap .my-form .my-btn-fb, html .content-wrap .my-form .my-btn-gplus, body .content-wrap .my-form .my-social-btn, body .content-wrap .my-form .my-btn-fb, body .content-wrap .my-form .my-btn-gplus {
+        height: 4.7rem; }
+      html .content-wrap .my-form .my-social-btns, body .content-wrap .my-form .my-social-btns {
+        text-align: center; }
+      html .content-wrap .my-form .my-btn-fb, body .content-wrap .my-form .my-btn-fb {
+        color: #F7F7F9;
+        background: #044fc4; }
+      html .content-wrap .my-form .my-btn-gplus, body .content-wrap .my-form .my-btn-gplus {
+        color: #F7F7F9;
+        background: #b70800; }
   html .centering, body .centering {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%); }
   html header, body header {
+    position: fixed;
     height: 20rem;
     width: 100%;
-    position: fixed;
     left: 0;
     z-index: 10;
     background-color: #FFF; }
     html header #brand-center, body header #brand-center {
       width: 15rem;
       height: 15rem;
-      background-size: 100%;
-      background-image: url("../files/img/zeal-logo.png");
-      background-repeat: no-repeat; }
+      background: center/100% url("../files/img/zeal-logo.png") no-repeat; }
     html header .brand-center, body header .brand-center {
       height: 15rem;
       width: 100%;
       margin: 5px; }
     html header nav, body header nav {
-      height: 6rem; }
+      height: 7rem; }
       html header nav ul, body header nav ul {
         margin: 0;
         padding: 0;
@@ -5845,7 +5843,6 @@ html, body {
         color: #ff8a00;
         text-decoration: underline; }
     html header h1.nav-heading, body header h1.nav-heading {
-      display: inline-block;
       border-top: 1px solid #E9E9E9;
       font-family: Lato;
       font-size: 4rem;
@@ -5858,9 +5855,7 @@ html, body {
     top: 20rem;
     left: 0;
     right: 0;
-    padding: 2rem 0; }
-    html section h1, html section h2, body section h1, body section h2 {
-      margin-left: 2rem; }
+    padding: 15rem 2rem; }
     html section a, html section a:link, html section a:visited, body section a, body section a:link, body section a:visited {
       color: #333;
       font-family: OpenSansCondencedLight, sans-serif;
@@ -5870,32 +5865,26 @@ html, body {
     body section a:focus, body section a:active {
       color: #ff8a00;
       text-decoration: underline; }
-  html section#rules, body section#rules {
-    padding: 15rem 0 15rem 0;
-    margin: 8rem 0; }
-    html section#rules div.rules, html section#rules div.winners, body section#rules div.rules, body section#rules div.winners {
-      float: left; }
-    html section#rules a, html section#rules a:link, html section#rules a:visited, body section#rules a, body section#rules a:link, body section#rules a:visited {
-      line-height: 4rem;
-      font-size: 3rem; }
-    html section#rules .rules, body section#rules .rules {
-      width: 70%;
-      font-size: 2rem;
-      text-align: justify;
-      line-height: 2rem;
-      padding: 1rem 2rem 1rem 2rem;
-      font-style: oblique; }
-    html section#rules .winners, body section#rules .winners {
-      width: 30%; }
+  html section#rules div.rules, html section#rules div.winners, body section#rules div.rules, body section#rules div.winners {
+    float: left; }
+  html section#rules a, html section#rules a:link, html section#rules a:visited, body section#rules a, body section#rules a:link, body section#rules a:visited {
+    line-height: 4rem;
+    font-size: 3rem; }
+  html section#rules .rules, body section#rules .rules {
+    width: 70%;
+    font-size: 2rem;
+    text-align: justify;
+    line-height: 2rem;
+    padding: 1rem 2rem 1rem 2rem;
+    font-style: oblique; }
+  html section#rules .winners, body section#rules .winners {
+    width: 30%; }
   html section#images, body section#images {
-    padding-top: 15rem;
-    margin: 8rem 0;
-    min-height: 100rem;
-    z-index: 2; }
+    min-height: 100rem; }
     html section#images a, html section#images a:link, html section#images a:visited, body section#images a, body section#images a:link, body section#images a:visited {
       font-size: 3rem; }
   html section#win, body section#win {
-    min-height: 50rem; }
+    min-height: 60rem; }
     html section#win .text, body section#win .text {
       width: 50%;
       margin-right: 2rem;
@@ -5912,18 +5901,15 @@ html, body {
       -webkit-box-sizing: border-box; }
   html section#win-goggles, body section#win-goggles {
     position: relative;
-    height: 68rem;
-    margin-bottom: 15rem; }
-    html section#win-goggles .bckg, body section#win-goggles .bckg {
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+    height: 83rem;
+    top: 0; }
+    html section#win-goggles .goggles, body section#win-goggles .goggles {
       height: 100%;
       width: 100%;
-      background-size: 100%;
-      background-image: url("../files/img/zeal-goggles.png"); }
+      background: no-repeat center/100% url("../files/img/zeal-goggles.png") fixed; }
     html section#win-goggles .win-call-bar, body section#win-goggles .win-call-bar {
       position: relative;
-      top: -5rem;
+      top: 10rem;
       display: table;
       table-layout: fixed;
       width: 120%;
@@ -5943,36 +5929,6 @@ html, body {
         html section#win-goggles .win-call-bar .win-call-bar-content a:focus, html section#win-goggles .win-call-bar .win-call-bar-content a:hover, html section#win-goggles .win-call-bar .win-call-bar-content a:active, body section#win-goggles .win-call-bar .win-call-bar-content a:focus, body section#win-goggles .win-call-bar .win-call-bar-content a:hover, body section#win-goggles .win-call-bar .win-call-bar-content a:active {
           color: #ff8a00;
           font-style: oblique; }
-  html footer, body footer {
-    position: fixed;
-    left: -4%;
-    bottom: -90rem; }
-  html footer img, body footer img {
-    width: 108%;
-    left: -4%; }
-  @media (max-width: 800px) {
-    html section#win .text, body section#win .text {
-      width: 100%;
-      margin-right: 2rem;
-      float: left; }
-    html .my-form .form-control, body .my-form .form-control {
-      margin-left: auto;
-      margin-right: auto;
-      width: 90%; }
-    html ul.grid-nav li, body ul.grid-nav li {
-      display: block;
-      margin: 0 0 5px; }
-    html ul.grid-nav li a, body ul.grid-nav li a {
-      display: block; }
-    html ul.rig, body ul.rig {
-      margin-left: 0; }
-    html ul.rig li, body ul.rig li {
-      width: 45% !important;
-      /* over-ride all li styles */
-      margin: 0 0 20px; } }
-  @media (max-width: 600px) {
-    html footer img, body footer img {
-      width: 108%; } }
   html ul.rig, body ul.rig {
     list-style: none;
     margin-left: -5%; }
@@ -6020,7 +5976,42 @@ html, body {
   html ul.rig.columns-4 li, body ul.rig.columns-4 li {
     width: 22.5%;
     /* this value + 2.5 should = 25% */ }
+  html footer, body footer {
+    position: fixed;
+    z-index: 9;
+    left: -4%;
+    bottom: -90rem; }
+    html footer img, body footer img {
+      width: 108%;
+      left: -4%; }
+  @media (max-width: 800px) {
+    html section#win .text, body section#win .text {
+      width: 100%;
+      margin-right: 2rem;
+      float: left; }
+    html .my-form .form-control, body .my-form .form-control {
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%; }
+    html ul.grid-nav li, body ul.grid-nav li {
+      display: block;
+      margin: 0 0 5px; }
+    html ul.grid-nav li a, body ul.grid-nav li a {
+      display: block; }
+    html ul.rig, body ul.rig {
+      margin-left: 0; }
+    html ul.rig li, body ul.rig li {
+      width: 45% !important;
+      /* over-ride all li styles */
+      margin: 0 0 20px; } }
+  @media (max-width: 600px) {
+    html footer img, body footer img {
+      width: 108%; } }
   @media (max-width: 480px) {
+    html header h1.nav-heading, body header h1.nav-heading {
+      text-align: center;
+      width: 90%;
+      font-size: 1.7rem; }
     html ul.grid-nav li, body ul.grid-nav li {
       display: block;
       margin: 0 0 5px; }

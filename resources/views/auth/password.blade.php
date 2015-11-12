@@ -2,13 +2,18 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+    <div class="content-wrap">
+
+        <div class="col-md-5 my-form">
+
             <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+
                 <div class="panel-body">
 
-                    @include('partials.errors')
+
+                <h1>Reset Password</h1>
+
+                    @include('errors.errors')
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -22,7 +27,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="my-btn form-control">
                                     Send
                                 </button>
                             </div>
