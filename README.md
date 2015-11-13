@@ -62,7 +62,7 @@ Installatie van de applicatie
     
     verder run de volgende commandos: 
         
-        composer install of composer install
+        composer install of sudo composer install
         chmod -R 777 storage of sudo chmod -R 777 storage
         chmod -R 777 bootstrap/cache of sudo chmod -R 777 bootstrap/cache
     
