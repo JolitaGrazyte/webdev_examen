@@ -97,8 +97,7 @@ Nu is het klaar om te gebruiken.
 Om een email met de winnaars en de mensen die hebben meegedaan te kunnen ontvangen dan moet je nog cron installeren.
     Run commando:  crontab -e 
     Zet de volgende lijn in je crontab: 
-
-* * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
+    * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
 
 
 
