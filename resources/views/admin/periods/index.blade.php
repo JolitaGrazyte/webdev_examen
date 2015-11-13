@@ -5,6 +5,8 @@
 
         <div class="panel-body">
 
+            <h4><a class="pull-right" href="{{ route('admin.periods.create') }}">Add new period</a></h4>
+
             <h3>Periods:</h3>
             @foreach($periods as $key =>  $period)
 

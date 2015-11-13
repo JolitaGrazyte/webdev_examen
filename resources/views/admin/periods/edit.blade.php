@@ -14,19 +14,9 @@
 
                 <div class="panel-body">
 
+                    <a class="pull-right" href="{{ URL::previous() }}">Go back</a>
+
                     <h1>Edit period</h1>
-
-                    {{--{!! Form::model($period, ['route' =>  ['admin.periods.update', $period->id]]) !!}--}}
-                    {{--<div>--}}
-                        {{--{!! Form::label('start', 'Start') !!}--}}
-                        {{--{!! Form::text('start') !!}--}}
-                    {{--</div>--}}
-
-                    {{--<div>--}}
-                        {{--{!! Form::label('end', 'End') !!}--}}
-                        {{--{!! Form::textarea('end') !!}--}}
-                    {{--</div>--}}
-                    {{--{!! Form::close() !!}--}}
 
                     {!!Form::open(['route' =>  ['admin.periods.update', $period->id], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PATCH'])  !!}
 
@@ -50,5 +40,13 @@
         </div>
 
     </div>
+
+@stop
+
+@section('footer')
+
+    <footer data-0="bottom: -95rem;" data-3900="bottom: -95rem;" data-700="bottom:0">
+        @include('partials.footer')
+    </footer>
 
 @stop

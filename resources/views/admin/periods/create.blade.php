@@ -14,6 +14,8 @@
 
             <div class="panel-body">
 
+                <a class="pull-right" href="{{ URL::previous() }}">Go back</a>
+
                 <h1>Add period</h1>
 
                     {!!Form::open(['route' =>  ['admin.periods.store'], 'class' => 'form-horizontal', 'role' => 'form'])  !!}
@@ -36,4 +38,12 @@
         </div>
     </div>
 </div>
+@stop
+
+@section('footer')
+
+    <footer data-0="bottom: -95rem;" data-3900="bottom: -95rem;" data-700="bottom:0">
+        @include('partials.footer')
+    </footer>
+
 @stop

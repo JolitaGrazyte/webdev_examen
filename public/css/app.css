@@ -5776,10 +5776,31 @@ html, body {
   /* class for 2 columns */
   /* class for 3 columns */
   /* class for 4 columns */ }
+  html div.admin-nav-right, body div.admin-nav-right {
+    z-index: 15;
+    position: fixed;
+    top: 5rem;
+    right: 5rem; }
+    html div.admin-nav-right a, html div.admin-nav-right a:link, html div.admin-nav-right a:visited, body div.admin-nav-right a, body div.admin-nav-right a:link, body div.admin-nav-right a:visited {
+      text-decoration: none;
+      color: #033067; }
+    html div.admin-nav-right a:hover,
+    html div.admin-nav-right a:focus, body div.admin-nav-right a:hover,
+    body div.admin-nav-right a:focus {
+      color: #d07e1b;
+      text-decoration: underline; }
   html .content-wrap, body .content-wrap {
     margin: 15rem 0;
     padding: 10rem 0;
     min-height: 900px; }
+    html .content-wrap a, html .content-wrap a:link, html .content-wrap a:visited, body .content-wrap a, body .content-wrap a:link, body .content-wrap a:visited {
+      text-decoration: none;
+      color: #033067; }
+    html .content-wrap a:hover,
+    html .content-wrap a:focus, body .content-wrap a:hover,
+    body .content-wrap a:focus {
+      color: #d07e1b;
+      text-decoration: underline; }
     html .content-wrap .panel, body .content-wrap .panel {
       margin-top: 2rem; }
     html .content-wrap .my-form, body .content-wrap .my-form {

@@ -56,7 +56,7 @@
 
 @section('footer')
 
-    <footer data-0="bottom: -95rem;" data-3900="bottom: -95rem;" data-2500="bottom:0">
+    <footer data-0="bottom: -95rem;" data-3900="bottom: -95rem;" data-2000="bottom:0">
         @include('partials.footer')
     </footer>
 

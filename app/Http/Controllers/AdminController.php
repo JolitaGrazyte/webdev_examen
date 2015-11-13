@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PeriodRequest;
 use App\Period;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\ChangeEmailRequest;
 use Illuminate\Support\Facades\Session;
@@ -51,7 +52,8 @@ class AdminController extends Controller
     public function create()
     {
 
-        return view('admin.periods.create')->withTitle('Add periods');
+        $now = Carbon::now()->format('Y-m-d H:i:s');
+        return view('admin.periods.create')->withTitle('Add periods')->withNow($now);
     }
 
     /**
@@ -87,8 +89,8 @@ class AdminController extends Controller
     public function edit($id)
     {
         $period = $this->period->find($id);
-
-        return view('admin.periods.edit', compact('period', 'start', 'end'))->withTitle('Edit period');
+        $now = Carbon::now()->format('Y-m-d H:i:s');
+        return view('admin.periods.edit', compact('period', 'start', 'end', 'now'))->withTitle('Edit period');
     }
 
     /**
