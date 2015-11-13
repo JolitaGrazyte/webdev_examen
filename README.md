@@ -99,8 +99,7 @@ Om een email met de winnaars en de mensen die hebben meegedaan te kunnen ontvang
     Zet de volgende lijn in je crontab: 
     * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
 
-
-
+Administratieve gedeelte i bereikbaar via  http://je-site-naam/admin.
 
 
 
