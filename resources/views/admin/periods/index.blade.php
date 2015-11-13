@@ -1,5 +1,5 @@
 
-@if(count($periods))
+
 
     <div class="panel panel-default">
 
@@ -7,6 +7,7 @@
 
             <h4><a class="pull-right" href="{{ route('admin.periods.create') }}">Add new period</a></h4>
 
+            @if(count($periods))
             <h3>Periods:</h3>
             @foreach($periods as $key =>  $period)
 
@@ -21,8 +22,7 @@
 
             @endforeach
 
+            @endif
         </div>
 
     </div>
-
-@endif
