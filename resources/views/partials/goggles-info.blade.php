@@ -1,6 +1,6 @@
 <div class="text">
 
-    <h2>ABOUT HD2 CAMERA GOGGLE</h2>
+    <h2>HD2 CAMERA GOGGLE</h2>
 
     <p> Just when you thought it couldn't get better, we've launched the new ZEAL Optics HDS CAMERA GOGGLE and it's unlike anything else on the mountain.
         This goggle wirelessly connects and transfers videos and photos directly to your phone allowing you to have easy access to everything you shoot - INSTANTLY!

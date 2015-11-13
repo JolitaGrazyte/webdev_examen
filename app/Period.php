@@ -34,4 +34,14 @@ class Period extends Model
 
         return $query->where('end', '<', $now);
     }
+
+    public function setStartAttribute($date){
+
+        $this->attributes['start'] = Carbon::parse($date);
+    }
+
+    public function setEndAttribute($date){
+
+        $this->attributes['end'] = Carbon::parse($date);
+    }
 }

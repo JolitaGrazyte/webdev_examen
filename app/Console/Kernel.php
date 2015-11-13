@@ -31,14 +31,7 @@ class Kernel extends ConsoleKernel
                  ->hourly();
 
 
-//        $schedule->command('emails:winners')->when( function ( Period $period ) {
-//
-//            $pp =  $period->past()->latest('end')->first();
-//
-//            return substr($pp->end, 0, 13) == Carbon::now('Europe/Brussels')->format('Y-m-d H');
-//
-//        });
-
-        #$schedule->command('emails:participants')->dailyAt('5:00');
+        $schedule->command('emails:winners');
+        $schedule->command('emails:participants')->cron('* 3 * * *');
     }
 }

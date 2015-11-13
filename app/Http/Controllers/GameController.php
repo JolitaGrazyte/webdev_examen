@@ -37,8 +37,9 @@ class GameController extends Controller
             'Every period a new winner is selected!',
             'The rules are simple: register, post the most amazing and unique photo from your last ski vacation.',
             'Sit back, relax and wait until the end of the period!',
-            'After every period the winners will published on this page.',
-            'You can vote, but only once for each photo.'
+            'After every period the winners will be published on this page.',
+            'You can only post once!',
+            'You can als vote, but also only once for each photo!'
 
         ];
 

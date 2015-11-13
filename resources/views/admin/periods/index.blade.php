@@ -11,9 +11,9 @@
             @foreach($periods as $key =>  $period)
 
                 <a title="Edit period" href="{{ route('admin.periods.edit', [$period->id]) }}"><h2> {{ 'Period '.($key+1)  }}</h2></a>
-                <span> {{ $period->start }} - </span>
+                <div><strong>starts:</strong> <em>{{ $period->start->toDayDateTimeString() }} </em></div>
 
-                <span> {{ $period->end }} </span>
+                <div><strong>ends:</strong> <em>{{ $period->end->toDayDateTimeString() }} </em></div>
 
                 <div>
                     <a href="{{ route('period-delete', [$period->id]) }}"><em>delete period</em></a>

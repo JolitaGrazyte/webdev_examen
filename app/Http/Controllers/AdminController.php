@@ -140,8 +140,8 @@ class AdminController extends Controller
     private function addOrUpdatePeriod($request, $id = null){
 
         $period         = $id == null ? $this->period : $this->period->find($id);
-        $period->start  = date('Y-m-d h:i:s', strtotime($request->get('start')));
-        $period->end    = date('Y-m-d h:i:s', strtotime($request->get('end')));
+        $period->start  = $request->get('start');
+        $period->end    = $request->get('end');
         $period->save();
     }
 

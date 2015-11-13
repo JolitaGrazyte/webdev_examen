@@ -1,5 +1,4 @@
-<h1>There are no images yet!</h1>
-
+<h2>The current period is sadly empty!gi </h2>
 
 <h2> Be the first, upload your best moment!</h2>
 

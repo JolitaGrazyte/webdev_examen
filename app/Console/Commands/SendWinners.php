@@ -44,6 +44,10 @@ class SendWinners extends Command
         $user           =   User::where('role', 0)->first();
         $past_period    =   Period::past()->latest('end')->first();
 
+//        dd(Carbon::now('Europe/Brussels')->format('Y-m-d H'));
+//        dd($isTrue = $past_period->end->format('Y-m-d H'));
+//        dd($isTrue = $past_period->end->format('Y-m-d H') == Carbon::now('Europe/Brussels')->format('Y-m-d H'));
+
         $isTrue = $past_period->end->format('Y-m-d H') == Carbon::now('Europe/Brussels')->format('Y-m-d H');
 
         if($isTrue){

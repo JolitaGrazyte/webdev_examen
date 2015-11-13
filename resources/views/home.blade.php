@@ -46,7 +46,7 @@
 
                   @foreach($periods as $period)
 
-                      <p>{{ $period->start }} - {{ $period->end }}</p>
+                      <p>{{ $period->start->format('D, d M Y, H:i') }} - {{ $period->end->format('D, d M Y, H:i') }}</p>
 
                   @endforeach
 
@@ -103,6 +103,8 @@
       <section id="win">
 
           <hr>
+
+          <h1>To win</h1>
           @include('partials.goggles-info')
 
       </section>
