@@ -39,7 +39,7 @@ class AdminController extends Controller
     public function getEmail(){
 
         $user   = User::where('role', 0)->first();
-        $email  = $user->email;
+        $email  = !is_null($user) ? $user->email : '';
         return $email;
     }
 
