@@ -74,7 +74,6 @@ class SendListParticipants extends Command
 
         $participants = User::where('role', '!=', 0)->where('created_at', 'LIKE', $date.'%' )->get(); // participants of today
 //        $participants = User::where('role', '!=', 0)->get(); // all participants
-
 //        dd($participants);
 
         if(count($participants)){

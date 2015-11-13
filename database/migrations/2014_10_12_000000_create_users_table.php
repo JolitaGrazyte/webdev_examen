@@ -17,12 +17,9 @@ class CreateUsersTable extends Migration
             $table->string('username')->nullable();
             $table->string('first_name', 45);
             $table->string('last_name', 45);
-            $table->tinyInteger('gender')->nullable(); // 0 = male; 1 = female
-            $table->date('birth_date');
             $table->string('email', 45)->unique();
             $table->string('password', 60);
             $table->tinyInteger('role'); // 0 = super_admin; 1 = participants
-//            $table->string('ip', 45);
             $table->string('ip', 45)->unique();
             $table->rememberToken();
             $table->timestamps();
