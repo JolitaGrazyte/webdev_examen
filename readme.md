@@ -1,6 +1,4 @@
 # webdev_examen
-
-
 Zeal Optics Wedstrijd 
 
 Applicatie
@@ -64,7 +62,7 @@ Installatie van de applicatie
     
     verder run de volgende commandos: 
         
-        composer install of composer install
+        composer install of sudo composer install
         chmod -R 777 storage of sudo chmod -R 777 storage
         chmod -R 777 bootstrap/cache of sudo chmod -R 777 bootstrap/cache
     
@@ -99,11 +97,9 @@ Nu is het klaar om te gebruiken.
 Om een email met de winnaars en de mensen die hebben meegedaan te kunnen ontvangen dan moet je nog cron installeren.
     Run commando:  crontab -e 
     Zet de volgende lijn in je crontab: 
+    * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
 
-* * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
-
-
-
+Administratieve gedeelte i bereikbaar via  http://je-site-naam/admin.
 
 
 
