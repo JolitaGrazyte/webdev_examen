@@ -56,11 +56,7 @@ class AuthController extends Controller implements AuthenticateUserListener
     }
 
 
-    public function getRegister(){
-
-        return view('register');
-    }
-
+//
 
     public function postRegister( RegisterRequest $request )
     {
@@ -93,7 +89,12 @@ class AuthController extends Controller implements AuthenticateUserListener
     }
 
 
-    public function ipExists($ip){
+
+    /** Method to check if a user with this ip record already exist in our database.
+     * @param $ip
+     * @return \Illuminate\Database\Eloquent\Model|null|static
+     */
+    private function ipExists($ip){
 
 //        $ip = inet_pton('100.100.100.100'); // checking
         $user = User::withTrashed()->where('ip', $ip)->first();

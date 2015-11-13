@@ -66,7 +66,7 @@
 @section('footer')
 
     <footer>
-        @include('layouts.footer')
+        @include('partials.footer')
     </footer>
 
 @stop

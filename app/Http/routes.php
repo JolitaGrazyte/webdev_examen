@@ -11,9 +11,8 @@
 |
 */
 
-//get('/home', function () {
-//    return redirect()->to('/');
-//});
+
+get('/', ['as'=>'home',     'uses' => 'GameController@getAll' ]);
 
 
 // Password reset
@@ -25,7 +24,7 @@ Route::controllers([
 // Registration routes...
 get('register',             ['as' => 'register',        'uses' => 'Auth\AuthController@getRegister' ]);
 post('register',            ['as' => 'post-register',   'uses' => 'Auth\AuthController@postRegister' ]);
-get('register/{provider}',  ['as' => 'social-register', 'uses' => 'Auth\AuthController@social_register']); // facebook info
+get('register/{provider}',  ['as' => 'social-register', 'uses' => 'Auth\AuthController@social_register']);
 
 // Authentication routes...
 get('auth/login',       ['as' => 'getLogin',            'uses' => 'Auth\AuthController@getLogin']);
@@ -36,18 +35,21 @@ get('auth/logout',      ['as' => 'getLogout',           'uses' => 'Auth\AuthCont
 // Admin routes...
 Route::group(['prefix' => 'admin'], function(){
 
-    resource('periods',   'PeriodsController' );
-    get('periods/{id}/delete',    ['as' => 'period-delete',       'uses' => 'PeriodsController@destroy']);
-    get('',                       ['as' => 'admin',       'uses' => 'PeriodsController@index']);
+    resource('periods',         'AdminController' );
+    get('periods/{id}/delete',  ['as' => 'period-delete',         'uses'    => 'AdminController@destroy']);
+
+    post('change-email',        ['as' => 'change-email',          'uses'    => 'AdminController@changeEmail']);
 
 });
 
+get('admin',                     ['as' => 'admin',                 'uses'    => 'AdminController@index']);
+
 
 // Images upload/handle routes...
-get('/', ['as'=>'home',     'uses' => 'GameController@getAll' ]);
+
 get('upload/{user_id}',     ['as'=>'getUpload',     'uses' => 'ImagesController@getUpload' ]);
 post('upload/{user_id}',    ['as'=>'postUpload',    'uses' => 'ImagesController@postUpload' ]);
 
-get('images',                   ['as'=>'getImages',     'uses' => 'ImagesController@getImages' ]);
-get('image/{filename}/{size}',  ['as'=>'getImage',     'uses' => 'ImagesController@getImage' ]);
-post('images',                  ['as'=>'postVote',     'uses' => 'GameController@postVotes' ]);
+get('images',                   ['as'=>'getImages',     'uses'  => 'ImagesController@getImages' ]);
+get('image/{filename}/{size}',  ['as'=>'getImage',      'uses'  => 'ImagesController@getImage' ]);
+post('images',                  ['as'=>'postVote',      'uses'  => 'GameController@postVotes' ]);

@@ -6,14 +6,13 @@ use App\Http\Requests\PeriodRequest;
 use App\Period;
 use App\User;
 use Illuminate\Http\Request;
-use App\Http\Requests;
+use App\Http\Requests\ChangeEmailRequest;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\QueryException;
+use Auth;
 
 
-
-
-class PeriodsController extends Controller
+class AdminController extends Controller
 {
     private $period;
 
@@ -31,8 +30,8 @@ class PeriodsController extends Controller
      */
     public function index()
     {
-        $periods = Period::all();
-        $admin_email = $this->getEmail();
+        $periods        = Period::all();
+        $admin_email    = $this->getEmail();
         return view('admin.index', compact('admin_email', 'periods'))->withTitle('Admin');
     }
 
@@ -65,15 +64,15 @@ class PeriodsController extends Controller
     {
 
        try{
-           $this->addPeriod($request);
+           $this->addOrUpdatePeriod($request);
 
-           Session::flash('message', "Period has been added successfully.");
-           Session::flash('alert-class', 'alert-success');
+           Session::flash('message',        "Period has been added successfully.");
+           Session::flash('alert-class',    'alert-success');
        }
        catch(QueryException $e){
 
-           Session::flash('message', "Something went wrong.");
-           Session::flash('alert-class', 'alert-error');
+           Session::flash('message',        "Something went wrong.");
+           Session::flash('alert-class',    'alert-error');
        }
 
         return redirect()->route('admin');
@@ -87,7 +86,6 @@ class PeriodsController extends Controller
      */
     public function edit($id)
     {
-
         $period = $this->period->find($id);
 
         return view('admin.periods.edit', compact('period', 'start', 'end'))->withTitle('Edit period');
@@ -104,15 +102,15 @@ class PeriodsController extends Controller
     {
 
         try{
-            $this->addPeriod($request, $id);
+            $this->addOrUpdatePeriod($request, $id);
 
-            Session::flash('message', "Period has been updated successfully.");
-            Session::flash('alert-class', 'alert-success');
+            Session::flash('message',       "Period has been updated successfully.");
+            Session::flash('alert-class',   'alert-success');
         }
         catch(QueryException $e){
 
-            Session::flash('message', "Something went wrong.");
-            Session::flash('alert-class', 'alert-error');
+            Session::flash('message',       "Something went wrong.");
+            Session::flash('alert-class',   'alert-error');
         }
 
         return redirect()->route('admin');
@@ -133,14 +131,55 @@ class PeriodsController extends Controller
     }
 
 
-   private function addPeriod($request, $id = null){
+    /** Method to add a new period or update an existing period.
+     * @param $request
+     * @param null $id
+     */
+    private function addOrUpdatePeriod($request, $id = null){
 
-        $period = $id == null ? $this->period : $this->period->find($id);
+        $period         = $id == null ? $this->period : $this->period->find($id);
         $period->start  = date('Y-m-d h:i:s', strtotime($request->get('start')));
         $period->end    = date('Y-m-d h:i:s', strtotime($request->get('end')));
         $period->save();
     }
 
+    public function changeEmail( ChangeEmailRequest $request ){
+
+
+        try{
+
+            $auth   =   Auth::user();
+            $user   =   User::where('id', $auth->id)->where('role', 0)->first();
+
+            if($user->email != $request->get('email'))
+            {
+                $user->email = $request->get('email');
+                $user->save();
+
+                Session::flash('message',       "Your email has been successfully updated.");
+                Session::flash('alert-class',   'alert-success');
+            }
+            else{
+
+                Session::flash('message',       "Nothing to update.");
+                Session::flash('alert-class',   'alert-warning');
+
+            }
+
+
+
+        }
+        catch(QueryException $e){
+
+            dd($e->getMessage());
+
+            Session::flash('message',       "Something went wrong.");
+            Session::flash('alert-class',   'alert-error');
+        }
+
+
+        return redirect()->back();
+    }
 
 
 }

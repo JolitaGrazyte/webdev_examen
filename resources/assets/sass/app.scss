@@ -10,6 +10,7 @@
   padding:0;
   margin:0;
   overflow-x:hidden;
+  font-family: sans-serif;
 
   .content-wrap{
 
@@ -134,7 +135,7 @@
       text-decoration: none;
       color: $primary-color;
       font-family: $font-stack;
-      font-size: 5rem;
+      font-size: 5.3rem;
      }
 
      a:hover,
@@ -193,13 +194,9 @@
 
    section#rules{
 
-    //padding: 0 0 15rem 0;
-    //margin: 8rem 0;
-
     div.rules, div.winners{
      float: left;
     }
-
 
     a, a:link, a:visited {
      line-height: 4rem;
@@ -211,12 +208,13 @@
      font-size: 2rem;
      text-align: justify;
      line-height:2rem;
-     padding: 1rem 2rem 1rem 2rem;
-     font-style: oblique;
+     //padding: 1rem 2rem 1rem 2rem;
+     //font-family: Aargh;
+     //font-style: oblique;
     }
 
     .winners{
-     width: 30%;
+       width: 30%;
     }
 
     //background-color: #ff8000;
@@ -239,7 +237,7 @@
    //background-color: lightskyblue;
    //z-index: -1;
 
-   .text{
+   div.text{
 
     width: 50%;
     margin-right: 2rem;
@@ -249,7 +247,11 @@
         padding-left: 2rem;
       }
    }
-   .video{
+   div.video{
+
+    position: relative;
+    top: 5.9rem;
+    left: 4rem;
 
     iframe{
 
@@ -268,7 +270,7 @@
 
  section#win-goggles{
    position: relative;
-   height: 83rem;
+   height: 95rem;
    top: 0;
    //background-color: #00d6b2;
 
@@ -276,18 +278,18 @@
   .goggles{
     height: 100%;
     width: 100%;
-    background: no-repeat center/100% url("../files/img/zeal-goggles.png") fixed;
+    background: no-repeat center/120% url("../files/img/zeal-goggles.png") fixed;
 
    }
 
 
    .win-call-bar {
     position: relative;
-    top: 10rem;
+    top: 0;
     display: table;
     table-layout: fixed;
     width: 120%;
-    min-height: 25%;
+    height: 15rem;
     left: -10%;
     //overflow: hidden;
     //background-color: #ff8000;
@@ -392,12 +394,11 @@
    //background-color: palegoldenrod;
    position: fixed;
    z-index: 9;
-   left: -4%;
-   bottom: -90rem;
+   left: -5%;
+   bottom: -95rem;
 
    img{
-    width: 108%;
-    left: -4%;
+    width: 105%;
 
    }
 
@@ -462,9 +463,11 @@
 
   @media (max-width: 480px) {
 
-   [class^="col-"]{
+   section#rules {
+    .rules, .winners{
 
-    //margin-left: -10px;
+     width: 100%;
+    }
    }
 
    header h1.nav-heading{

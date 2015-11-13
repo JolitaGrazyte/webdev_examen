@@ -1,71 +1,102 @@
 @extends('layouts.master')
 
+@section('title', 'Register')
+
 @section('content')
 
-    <h1>Register</h1>
+<div class="content-wrap">
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Register</div>
-                    <div class="panel-body">
+    <div class="col-md-5 my-form">
 
-                        @include('errors.errors')
+        <h1>Register and win</h1>
 
-                        {!! Form::open(['route' => 'getRegister', 'class' => 'form-horizontal', 'role' => 'form']) !!}
+        <div class="panel panel-default">
 
-                        <div class="form-group">
+            @include('errors.errors')
 
-                            {!! Form::label('email', 'E-mail Address', ['class' => 'col-md-4 control-label']) !!}
+            <div class="panel-body">
 
-                            <div class="col-md-6">
+                <div class="row">
 
-                                {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => 'email']) !!}
+                    {!!Form::open(['route' =>  ['post-register'], 'class' => 'form-horizontal', 'role' => 'form'])  !!}
 
-                            </div>
+                    <div class="form-group">
 
-                        </div>
+                        {!! Form::label('first_name', 'First Name:', ['class' => 'col-md-3 control-label']) !!}
 
-                        <div class="form-group">
+                        <div class="col-md-8">
 
-                            {!! Form::label('password', 'Password', ['class' => 'col-md-4 control-label']) !!}
+                            {!! Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'first name']) !!}
 
-                            <div class="col-md-6">
-
-                                {!! Form::password('password', ['class' => 'form-control',  'placeholder' => 'password']) !!}
-
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Confirm Password</label>
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password_confirmation">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-
-                        {!! Form::close() !!}
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <a href="{{ url('login/facebook') }}"><button class="btn btn-primary">facebook</button></a>
-                                <a href="{{ url('login/google') }}"><button class="btn btn-primary">google+</button></a>
-                            </div>
                         </div>
                     </div>
+
+                    <div class="form-group">
+
+                        {!! Form::label('last_name', 'Last Name:', ['class' => 'col-md-3 control-label']) !!}
+
+                        <div class="col-md-8">
+
+                            {!! Form::text('last_name',  null, ['class' => 'form-control', 'placeholder' => 'last name']) !!}
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        {!! Form::label('email', 'E-mail:', ['class' => 'col-md-3 control-label']) !!}
+
+                        <div class="col-md-8">
+
+                            {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'email']) !!}
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-8 col-md-offset-3">
+
+                            {!! Form::submit('Submit', ['class' => 'my-btn form-control']) !!}
+
+                        </div>
+
+                    </div>
+
+                    {!! Form::close() !!}
+
                 </div>
+
+                <hr>
+
+                <div class="row">
+
+                    <div class="form-group">
+
+                        {!! Form::label('social_register', 'Register in one click:', ['class' => 'col-md-8 col-md-offset-3 control-label']) !!}
+
+                        <div class="col-md-8 col-md-offset-3">
+                            <a href="{{ url('register/facebook') }}"><button class="my-btn-fb form-control">facebook</button></a>
+                            <a href="{{ url('register/google') }}"><button class="my-btn-gplus form-control">google+</button></a>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
+
     </div>
+
+</div>
+
+@stop
+
+@section('footer')
+
+    <footer data-0="bottom: -95rem;" data-3900="bottom: -95rem;" data-700="bottom:0">
+        @include('partials.footer')
+    </footer>
 
 @stop

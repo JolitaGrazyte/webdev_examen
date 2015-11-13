@@ -8,7 +8,7 @@
 
           <div class="goggles"
 
-               data-0="background-position: 50% 50%;"
+               data-0="background-position: 50% 68%;"
                data-600="background-position: 50% 0" ></div>
 
           <div class="win-call-bar">
@@ -30,9 +30,9 @@
 
           <hr>
 
-          <h1>Game rules</h1>
-
           <div class="rules">
+
+              <h1>Game rules</h1>
 
               @foreach($rules as $rule)
 
@@ -40,14 +40,14 @@
 
               @endforeach
 
-              <div><a href="{{ route('register') }}">Register now  >></a></div>
-              <div><a href="{{ route('home') }}#win">Check the amazing prizes you can win ! </a></div>
+              <div class="links"><a href="{{ route('register') }}">Register now  >></a></div>
+              <div class="links"><a href="{{ route('home') }}#win">Check the amazing prizes you can win ! </a></div>
           </div>
 
 
           <div class="winners">
 
-              @include('winners')
+              @include('partials.winners')
 
           </div>
 
@@ -89,7 +89,7 @@
       <section id="win">
 
           <hr>
-          @include('goggles-info')
+          @include('partials.goggles-info')
 
       </section>
 
@@ -98,8 +98,7 @@
 @section('footer')
 
     <footer data-0="bottom: -95rem;" data-3900="bottom: -95rem;" data-7000="bottom:0">
-        @include('layouts.footer')
+        @include('partials.footer')
     </footer>
 
 @stop
-

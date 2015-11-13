@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'aaarghnormal';
+    src: url('Aaargh.eot');
+    src: url('Aaargh.eot?#iefix') format('embedded-opentype'),
+         url('Aaargh.woff') format('woff'),
+         url('Aaargh.ttf') format('truetype'),
+         url('Aaargh.svg#aaarghnormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+

@@ -46,6 +46,29 @@ class Handler extends ExceptionHandler
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }
 
-        return parent::render($request, $e);
+        if($this->isHttpException($e))
+        {
+            switch ($e->getStatusCode()) {
+                // not found
+                case 404:
+                    return redirect()->guest('/');
+
+                    break;
+                // internal error
+                case '500':
+                    return redirect()->guest('/');
+
+                    break;
+
+                default:
+                    return $this->renderHttpException($e);
+                    break;
+            }
+        }
+        else
+        {
+            return parent::render($request, $e);
+        }
+
     }
 }

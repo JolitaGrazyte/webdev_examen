@@ -33,4 +33,3 @@
 
 @endif
 
-@include('layouts.message')
