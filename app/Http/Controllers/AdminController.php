@@ -169,7 +169,6 @@ class AdminController extends Controller
             }
 
 
-
         }
         catch(QueryException $e){
 

@@ -28,7 +28,7 @@ class GameController extends Controller
         $img  = new Image();
 
         $winners    = [];
-        $pp_images = $img->pastperiod($current_period)->get();
+        $pp_images = !is_null($current_period) ? $img->pastperiod($current_period)->get() : null;
 
 //        dd($pp_images);
 
