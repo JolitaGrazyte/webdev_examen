@@ -12,7 +12,7 @@ class UserRepository {
 
         $name = explode(' ', $userData->name);
 
-        $user_exist  = User::where('ip', $ip)->first();
+        $user_exist  = User::withTrashed()->where('ip', $ip)->first();
 
         if($user_exist != null){
 
