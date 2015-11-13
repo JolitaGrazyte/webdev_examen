@@ -40,8 +40,22 @@
 
               @endforeach
 
-              <div class="links"><a href="{{ route('register') }}">Register now  >></a></div>
-              <div class="links"><a href="{{ route('home') }}#win">Check the amazing prizes you can win ! </a></div>
+              @if(count($periods))
+
+                  <h3><strong><em>Periods:</em></strong></h3>
+
+                  @foreach($periods as $period)
+
+                      <p>{{ $period->start }} - {{ $period->end }}</p>
+
+                  @endforeach
+
+              @endif
+
+              <div class="links">
+                  <div><a href="{{ route('register') }}">Register now and upload your moment  >></a></div>
+                  <div><a href="{{ route('home') }}#win">Check the amazing prizes you can win ! </a></div>
+              </div>
           </div>
 
 
@@ -97,7 +111,7 @@
 
 @section('footer')
 
-    <footer data-0="bottom: -95rem;" data-3900="bottom: -95rem;" data-5000="bottom:0">
+    <footer data-0="bottom: -95rem;" data-3900="bottom: -95rem;" data-7000="bottom:0">
         @include('partials.footer')
     </footer>
 

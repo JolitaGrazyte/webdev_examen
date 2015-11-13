@@ -1,21 +1,20 @@
 @font-face {
-  font-family: 'OpenSansCondencedLight';
-  src: url('../fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.eot');
-  src: url('../fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.eot?#iefix') format('embedded-opentype'),
+  font-family: OpenSansCondencedLight;
+  src: url('http://webdev.jolitagrazyte.com/fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.eot');
+  src: url('http://webdev.jolitagrazyte.com/fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.eot?#iefix') format('embedded-opentype'),
     //url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
-  url('../fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.woff') format('woff'), /* Pretty Modern Browsers */
-  url('../fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
-  url('../fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+  url('http://webdev.jolitagrazyte.com/fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+  url('http://webdev.jolitagrazyte.com/fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('http://webdev.jolitagrazyte.com/fonts/web-fonts/opensanscondensed_light/OpenSans-CondLight-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
-
 @font-face {
-  font-family: 'Aaargh-Normal';
-  src: url('../fonts/web-fonts/Aaargh.eot');
-  src: url('../fonts/web-fonts/Aaargh.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/web-fonts/Aaargh.woff') format('woff'),
-  url('../fonts/web-fonts/Aaargh.ttf') format('truetype'),
-  url('../fonts/web-fonts/Aaargh.svg#aaarghnormal') format('svg');
+  font-family: Aaargh-Normal;
+  src: url('http://webdev.jolitagrazyte.com/fonts/web-fonts/aaargh/Aaargh.eot');
+  src: url('http://webdev.jolitagrazyte.com/fonts/web-fonts/aaargh/Aaargh.eot?#iefix') format('embedded-opentype'),
+  url('http://webdev.jolitagrazyte.com/fonts/web-fonts/aaargh/Aaargh.woff') format('woff'),
+  url('http://webdev.jolitagrazyte.com/fonts/web-fonts/aaargh/Aaargh.ttf') format('truetype'),
+  url('http://webdev.jolitagrazyte.com/fonts/web-fonts/aaargh/Aaargh.svg#aaarghnormal') format('svg');
   font-weight: normal;
   font-style: normal;
 

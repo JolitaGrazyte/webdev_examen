@@ -10,6 +10,8 @@ class Period extends Model
 
     protected $table = 'periods';
 
+    protected $dates = ['start', 'end'];
+
     protected $primaryKey = "id";
 
     public function images(){

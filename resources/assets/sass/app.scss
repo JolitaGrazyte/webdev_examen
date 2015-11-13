@@ -3,6 +3,7 @@
  @import "mixins";
 
 
+
  html, body{
 
   width: 100%;
@@ -10,7 +11,7 @@
   padding:0;
   margin:0;
   overflow-x:hidden;
-  font-family: sans-serif;
+  font-family: Aaargh-Normal, sans-serif;
 
 
 
@@ -21,12 +22,8 @@
    right: 5rem;
 
    a, a:link, a:visited {
-   //display: block;
-   //padding: 12px;
    text-decoration: none;
    color: #033067;
-   //font-family: $font-stack;
-   //font-size: 5.3rem;
   }
 
    a:hover,
@@ -49,8 +46,6 @@
     //padding: 12px;
     text-decoration: none;
     color: #033067;
-    //font-family: $font-stack;
-    //font-size: 5.3rem;
    }
 
    a:hover,
@@ -136,13 +131,6 @@
      width: $logo_size;
      height: $logo_size;
      background: center/100% url('../files/img/zeal-logo.png') no-repeat;
-     //background-repeat: no-repeat;
-     //position: absolute;
-     //left: 50%;
-     //transform: translateX(-50%);
-     //-webkit-transform:  translateX(-50%);
-     //border: seagreen 1px dotted;
-     //background-size: 100%;
     }
 
     .brand-center{
@@ -178,7 +166,7 @@
       text-decoration: none;
       color: $primary-color;
       font-family: $font-stack;
-      font-size: 5.3rem;
+      font-size: 5rem;
      }
 
      a:hover,
@@ -191,7 +179,6 @@
     }
 
     h1.nav-heading{
-     //display: inline-block;
      border-top: 1px solid #E9E9E9;
      font-family: Lato;
      font-size: 4rem;
@@ -208,16 +195,12 @@
     position: relative;
     width: 100%;
     min-height: 60rem;
-    top: 20rem;
+    top: 25rem;
     left: 0;
     right: 0;
     padding: 15rem 2rem;
-    //margin: 8rem 0;
+    margin: 25rem 0;
     //border: 2px #d73131 dotted;
-
-    h1, h2{
-     //margin-left: 2rem;
-    }
 
     a, a:link, a:visited {
      color: $primary-color;
@@ -243,21 +226,25 @@
 
     a, a:link, a:visited {
      line-height: 4rem;
-     font-size: 3rem;
+     font-size: 2.7rem;
     }
 
     .rules{
-     width: 70%;
-     font-size: 2rem;
+     width: 60%;
+     font-size: 1.7rem;
      text-align: justify;
-     line-height:2rem;
+     line-height: 2rem;
      //padding: 1rem 2rem 1rem 2rem;
-     //font-family: Aargh;
+     //font-family: Aaargh-Normal;
      //font-style: oblique;
+
+     .links{
+       margin-top: 10rem;
+     }
     }
 
     .winners{
-       width: 30%;
+       width: 40%;
     }
 
     //background-color: #ff8000;
@@ -271,7 +258,7 @@
    //background-color: lightpink;
    //z-index: 2;
    a, a:link, a:visited{
-    font-size: 3rem;
+    font-size: 2.5rem;
    }
 
  }
@@ -313,8 +300,10 @@
 
  section#win-goggles{
    position: relative;
-   height: 95rem;
-   top: 0;
+   height: 86rem;
+   top: -5rem;
+   padding: -0 2rem;
+   margin: 0;
    //background-color: #00d6b2;
 
 
@@ -344,7 +333,6 @@
      display: table-cell;
      vertical-align: middle;
      color: #ebebeb;
-     //padding: 2% 8%;
      text-align: center;
 
      a, a:link, a:visited{
@@ -394,7 +382,8 @@
    margin: 0 0 2.5% 2.5%;
    background: #fff;
    border: 1px solid #ddd;
-   font-size: 16px;
+   font-family: OpenSansCondencedLight, sans-serif;
+   font-size: 14px;
    font-size: 1rem;
    vertical-align: top;
    box-shadow: 0 0 5px #ddd;

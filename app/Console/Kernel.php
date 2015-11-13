@@ -15,8 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\Inspire::class,
-//        \App\Console\Commands\SendWinners::class,
-//        \App\Console\Commands\SendListParticipants::class,
+        \App\Console\Commands\SendWinners::class,
+        \App\Console\Commands\SendListParticipants::class,
     ];
 
     /**
